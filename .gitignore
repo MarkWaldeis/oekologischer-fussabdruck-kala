@@ -1,0 +1,12 @@
+node_modules/
+dist/
+build/
+.DS_Store
+*.log
+raw_climatehero_data/all_code_dump.js
+raw_climatehero_data/typeform_*.html
+raw_climatehero_data/form_full.json
+raw_climatehero_data/form_logic.json
+raw_climatehero_data/detailed_questions.json
+.env
+.env.local
