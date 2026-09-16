@@ -1,0 +1,2187 @@
+[
+  {
+    "index": 1,
+    "id": "OzYUf1iARaEg",
+    "title": "Hi, mein Name ist *ClimateBot* und ich wurde programmiert, um dir zu helfen, ein*e Klimaheld*in zu werden.\n\n*Wie heißt du?* ",
+    "type": "short_text",
+    "properties": {
+      "description": "Gib deinen Vornamen ein:"
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 2,
+    "id": "3zWPUSURU83J",
+    "title": "Hallo {{field:name}}, schön dich kennenzulernen!\nSag mir doch bitte auch, wie du dich selbst einordnest:",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Männlich",
+        "Weiblich",
+        "Roboter",
+        "Sonstiges"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 3,
+    "id": "eYEujrRc29vL",
+    "title": "Verzeihung, {{field:name}}!",
+    "type": "statement",
+    "properties": {
+      "description": "Dieser Test funktioniert nur für Menschen.\nBist du ganz sicher, dass du ein Roboter bist oder möchtest du es nochmal versuchen?"
+    }
+  },
+  {
+    "index": 4,
+    "id": "wwIm5VQ12vh9",
+    "title": "OK {{field:name}}, lass uns anfangen.",
+    "type": "statement",
+    "properties": {
+      "description": "Die CO2-Bilanz wird in CO2-Äquivalenten (CO2e) gemessen. Das ist eine Maßeinheit, die berücksichtigt, dass sich alle Treibhausgase (Kohlendioxid, Stickoxide, Methan usw.) unterschiedlich stark auf den Treibhauseffekt auswirken."
+    }
+  },
+  {
+    "index": 5,
+    "id": "7hw8WUjVpAZA",
+    "title": "Gut, {{field:name}},  lass uns mit ein paar Fragen zu deinem Zuhause anfangen. ",
+    "type": "statement",
+    "properties": {
+      "description": "Dies sind Fragen zu Strom, Heizung und Wohnen."
+    }
+  },
+  {
+    "index": 6,
+    "id": "RacpGHrPVazI",
+    "title": "Wie groß ist dein Zuhause?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "< 40 m²",
+        "40–80 m²",
+        "80–120 m²",
+        "120–160 m²",
+        "> 160 m²"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 7,
+    "id": "tBVKOPAd0TaV",
+    "title": "Wohnst du in einer Wohnung oder in einem Haus?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Einfamilienhaus",
+        "Doppelhaus / Reihenhaus",
+        "Wohnung / Appartement",
+        "Bauernhaus / Landhaus",
+        "Wohnwagen"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 8,
+    "id": "iDdcDRGmxI1W",
+    "title": "In welchem Jahrzehnt wurde das Haus gebaut? ",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Weiß ich nicht",
+        "Vor 1940",
+        "1941–1960",
+        "1961–1970",
+        "1971–1980",
+        "1981–1990",
+        "1991–2000",
+        "2001–2010",
+        "2011–"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 9,
+    "id": "8FWQGpdv4DMi",
+    "title": "Welche Art von Heizung wird für das Gebäude genutzt?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Weiß ich nicht",
+        "Heizöl",
+        "Erdgas",
+        "Fernwärme",
+        "Luft- oder Erdwärmepumpe",
+        "Biobrennstoff (Pellets / Feuerholz / Biogas)",
+        "Elektroheizung",
+        "Warmwasserbereitung mit Solarstrom",
+        "Eine Kombination aus verschiedenen Heizarten",
+        "Keine Heizung"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 10,
+    "id": "mN9uNAG5Ml0l",
+    "title": "Wurde die Wärmedämmung des Gebäudes erneuert?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Antworte nur mit „Ja“, wenn die Erneuerung innerhalb der letzten 10 Jahre durchgeführt wurde.",
+      "choices": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 11,
+    "id": "oH9sgjgyuGzv",
+    "title": "Hat das Gebäude ein eigenes System zur Stromerzeugung? ",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "z. B. Solarzellen auf dem Dach",
+      "choices": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    "validations": {
+      "required": true
+    }
+  },
+  {
+    "index": 12,
+    "id": "t2YoQfTtsM0M",
+    "title": "Hat dein Haushalt Zugang zu umweltfreundlichem Strom?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "z. B. einen Stromvertrag ohne fossile Energieträger, der nur Strom aus Wind-, Sonnen-, Atomenergie oder Wasserkraft liefert",
+      "choices": [
+        "Ja",
+        "Nein",
+        "Weiß ich nicht"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 13,
+    "id": "Rd9F3yFYMdMK",
+    "title": "Hat dein Zuhause eine Klimaanlage?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Dazu zählen unter anderem zentrale Klimaanlagen, Fenstereinheiten und Split-Klimaanlagen.",
+      "choices": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 14,
+    "id": "9bzHqyCAjzeI",
+    "title": "Wie viele Monate im Jahr ist die Klimaanlage im Einsatz?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "weniger als 1 Monat im Jahr",
+        "1–2 Monate im Jahr",
+        "3–4 Monate im Jahr",
+        "5–6 Monate im Jahr",
+        "7–11 Monate im Jahr",
+        "Das ganze Jahr über"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 15,
+    "id": "lhOiKQ7b0ws3",
+    "title": "Wie viele Stunden am Tag wird die Klimaanlage während dieser Zeit genutzt?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "weniger als 4 Stunden am Tag",
+        "4–8 Stunden am Tag",
+        "8–12 Stunden am Tag",
+        "12–23 Stunden am Tag",
+        "Rund um die Uhr"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 16,
+    "id": "MasMe8LDHTDb",
+    "title": "Versuchst du aktiv, deinen Stromverbrauch zu reduzieren?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "z. B. indem du energiesparende Produkte wählst, die Lichter ausschaltest oder Waschmaschinen und Spülmaschinen im Eco-Modus laufen lässt",
+      "choices": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 17,
+    "id": "Yf9FxnEtLsXR",
+    "title": "Wie viele Erwachsene (18 Jahre oder älter) leben in deinem Haushalt?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "1 Erwachsene*r",
+        "2 Erwachsene",
+        "3 Erwachsene",
+        "4 Erwachsene",
+        "5 oder mehr Erwachsene"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 18,
+    "id": "xk3bercZN6kr",
+    "title": "Wie viele Kinder leben in deinem Haushalt?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Keine Kinder",
+        "1 Kind",
+        "2 Kinder",
+        "3 Kinder",
+        "4 Kinder",
+        "5 oder mehr Kinder"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 19,
+    "id": "zR2Def0nRTJa",
+    "title": "Wie viele Tiere leben in deinem Haushalt?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Es zählen nur *Hunde*, *Katzen* und größere Tiere.",
+      "choices": [
+        "Keine Haustiere",
+        "1 Haustier",
+        "2 Haustiere",
+        "3 oder mehr Haustiere"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 20,
+    "id": "0QXgGHJxtTYO",
+    "title": "Hast du noch eine zweite Immobilie?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "z. B. ein Wochenendhaus, ein Ferienhaus, eine Ferienwohnung oder eine andere Immobilie zur Teilzeitnutzung",
+      "choices": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    "validations": {
+      "required": true
+    }
+  },
+  {
+    "index": 21,
+    "id": "JvSQkYTbE6V7",
+    "title": "Wie groß ist deine zweite Immobilie?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Falls du mehr als eine hast, gib die Gesamtsumme aller deiner zusätzlichen Immobilien an.",
+      "choices": [
+        "< 40 m²",
+        "40–80 m²",
+        "80–120 m²",
+        "120–160 m²",
+        "> 160 m²"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 22,
+    "id": "G9FYarU6cleq",
+    "title": "Wie viele Erwachsene teilen die Immobilie?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Gib hier auch Nutzer*innen an, die die Immobilie nur für einen Teil des Jahres mieten.",
+      "choices": [
+        "1 Erwachsene*r",
+        "2 Erwachsene",
+        "3 Erwachsene",
+        "4 Erwachsene",
+        "5 oder mehr Erwachsene"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 23,
+    "id": "5m9sm4GgZyaf",
+    "title": "Hat die Immobilie ein eigenes System zur Stromerzeugung? ",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "z. B. Solarzellen auf dem Dach",
+      "choices": [
+        "Ja",
+        "Nein, der gesamte Strom kommt aus dem Netz",
+        "Das Anwesen hat keinen Stromanschluss"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 24,
+    "id": "QyLW8JALFG6a",
+    "title": "Bezieht deine Immobilie umweltfreundlichen Strom?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "z. B. durch einen Stromvertrag ohne fossile Energieträger, der nur Strom aus Wind-, Sonnen-, Atomenergie oder Wasserkraft liefert",
+      "choices": [
+        "Ja",
+        "Nein",
+        "Weiß ich nicht"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 25,
+    "id": "taVo95qNFL5k",
+    "title": "Prima, {{field:name}}! Du hast Teil 1 von 3 geschafft. Als Nächstes haben wir ein paar Fragen zu deinen Reisegewohnheiten.",
+    "type": "statement",
+    "properties": {
+      "description": "Die Fragen sind unterteilt in *Flüge*, *Autofahrten* und *andere motorisierte Fahrzeuge*."
+    }
+  },
+  {
+    "index": 26,
+    "id": "FVkaymbPA83y",
+    "title": "Wie häufig fliegst du pro Jahr? ",
+    "type": "group",
+    "properties": {
+      "description": "*1 Flug = Hin- und Rückflug*. Diese Fragen beziehen sich ausschließlich auf *private Reisen*, zähle hier also bitte keine Geschäftsreisen mit."
+    }
+  },
+  {
+    "index": 27,
+    "id": "qrxNg3YwJPd5",
+    "title": "Aber was ist mit meinem Privatjet?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Die Fragen in diesem CO₂-Rechner sind auf die 10 Prozent der Weltbevölkerung zugeschnitten, deren Verbrauch [[laut Oxfam](https://www.oxfam.org/en/press-releases/worlds-richest-10-produce-half-carbon-emissions-while-poorest-35-billion-account)] 50 Prozent der globalen Treibhausgasemissionen verursacht. Dazu gehören im Grunde alle Menschen in der westlichen Welt, die ein Haus und ein monatliches Einkommen haben.\n\nWenn du jedoch über ein Vermögen verfügst, das dem Wert von mehr als einer Million Dollar entspricht, gehörst du zu den obersten 1 Prozent (die eventuell sogar einen Privatjet nutzen können). Wenn das der Fall ist, ist dein ökologischer Fußabdruck und deine Möglichkeit, einen Beitrag zu leisten, wahrscheinlich viel höher. [Kontaktiere uns](https://climatehero.me/contact-us/), und wir helfen dir mit einem maßgeschneiderten Plan, einen Beitrag zur Lösung des Klimawandels zu leisten.",
+      "choices": [
+        "Ok, weiter geht's"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 28,
+    "id": "blt4jIhp3Dr1",
+    "title": "Besitzt oder least du ein Auto?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Antworte auch mit „Ja“, falls du einen Firmenwagen hast, den du teilweise privat nutzt.",
+      "choices": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 29,
+    "id": "28GD13AEEUCW",
+    "title": "Ein paar Fragen zu deinem Auto:",
+    "type": "group",
+    "properties": {}
+  },
+  {
+    "index": 30,
+    "id": "V3b6ou006j09",
+    "title": "Bist du bei einem Carsharing-Dienst angemeldet?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 31,
+    "id": "kiqshFEwFpJu",
+    "title": "Welche Art von Autos werden beim Carsharing genutzt?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Batteriebetriebene Elektrofahrzeuge (EV)",
+        "Autos mit Verbrennungsmotor (Benzin/Gas/Diesel)",
+        "Mischung aus Elektro- und Verbrennungsmotor (einschließlich Hybriden)"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 32,
+    "id": "rIXJG4y80B78",
+    "title": "An etwa wie vielen Tagen im Jahr nutzt du Autos eines Carsharing-Dienstes?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "1–10 Tage pro Jahr",
+        "10–20 Tage pro Jahr",
+        "20–30 Tage pro Jahr",
+        "30–60 Tage pro Jahr",
+        "60–180 Tage pro Jahr",
+        "180–365 Tage pro Jahr"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 33,
+    "id": "MZmvvO0HDVnM",
+    "title": "Mietest du gelegentlich ein Auto?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Ja",
+        "Nein, nie"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 34,
+    "id": "bqdT7rfR68eI",
+    "title": "Welche Art von Autos mietest du?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Batteriebetriebene Elektrofahrzeuge (EV)",
+        "Autos mit Verbrennungsmotor (Benzin/Gas/Diesel)",
+        "Mischung aus Elektro- und Verbrennungsmotor (einschließlich Hybriden)"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 35,
+    "id": "YCrrcMPKP9pF",
+    "title": "Wie oft mietest du ein Auto?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "An etwa wie vielen *Tagen im Jahr* mietest du ein Auto?",
+      "choices": [
+        "1–10 Tage pro Jahr",
+        "10–20 Tage pro Jahr",
+        "20–30 Tage pro Jahr",
+        "30–60 Tage pro Jahr",
+        "60–180 Tage pro Jahr",
+        "180–365 Tage pro Jahr"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 36,
+    "id": "trstUFUHCWjd",
+    "title": "Fährst du gelegentlich mit dem Taxi?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Hier beziehen wir uns auf die Nutzung sowohl traditioneller Taxis als auch neuerer Dienste wie Uber und Lyft.",
+      "choices": [
+        "Ja",
+        "Nein, nie"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 37,
+    "id": "SYq67979Hcsu",
+    "title": "Welche Art von Taxis nutzt du?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Batteriebetriebene Elektrofahrzeuge (EV)",
+        "Autos mit Verbrennungsmotor (Benzin/Gas/Diesel)",
+        "Mischung aus Elektro- und Verbrennungsmotor (einschließlich Hybriden)"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 38,
+    "id": "ERRvM8t8Xd5S",
+    "title": "Wie oft fährst du mit dem Taxi?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Etwa wie viele *Taxifahrten* unternimmst du *pro Jahr*?",
+      "choices": [
+        "1–10 Taxifahrten",
+        "10–20 Taxifahrten",
+        "20–30 Taxifahrten",
+        "30–60 Taxifahrten",
+        "60–180 Taxifahrten",
+        "180–365 Taxifahrten",
+        "> 365 Taxifahrten"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 39,
+    "id": "Fs2pPPZja0lX",
+    "title": "Wie oft nimmst du eine Fähre oder ein Kreuzfahrtschiff?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "An wie vielen *Tagen pro Jahr*?",
+      "choices": [
+        "0 Tage",
+        "1–10 Tage pro Jahr",
+        "10–20 Tage pro Jahr",
+        "20–30 Tage pro Jahr",
+        "30–60 Tage pro Jahr",
+        "60–180 Tage pro Jahr",
+        "180–365 Tage pro Jahr"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 40,
+    "id": "x5PYIDOBSyNp",
+    "title": "Wie oft nutzt du öffentliche Verkehrsmittel?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "z. B. Bus, Zug, U-Bahn oder Straßenbahn",
+      "choices": [
+        "Nie / fast nie",
+        "1–2 Tage die Woche",
+        "2–3 Tage die Woche",
+        "3–4 Tage die Woche",
+        "4–7 Tage die Woche"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 41,
+    "id": "mNuxn5k8goWn",
+    "title": "Wie oft gehst du zu Fuß oder nimmst das Fahrrad?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Hierzu zählen Wege zwischen deinem Zuhause und der Arbeit, Schule, Freizeitaktivitäten usw.",
+      "choices": [
+        "Nie / fast nie",
+        "1–2 Tage die Woche",
+        "2–3 Tage die Woche",
+        "3–4 Tage die Woche",
+        "4–7 Tage die Woche"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 42,
+    "id": "CdASC252BRkd",
+    "title": "Besitzt, mietet oder least dein Haushalt die folgenden Fahrzeuge:",
+    "type": "group",
+    "properties": {}
+  },
+  {
+    "index": 43,
+    "id": "yrIdlqXLn68M",
+    "title": "Wie viele Autos besitzt oder least dein Haushalt?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Keines",
+        "1 Auto",
+        "2 Autos",
+        "3 oder mehr Autos"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 44,
+    "id": "SXtQgKeqe0g8",
+    "title": "Hoppla! Entschuldigung, {{field:name}}, aber der Klimarechner schafft nur ein oder zwei Autos.",
+    "type": "statement",
+    "properties": {
+      "description": "Keine Sorge, wir haben eine Lösung für dich. Klicke statt „3 oder mehr Autos“ einfach „2 Autos“ an und rechne später die Kilometerzahl des dritten (und vierten etc.) Autos zu der des zweiten dazu."
+    }
+  },
+  {
+    "index": 45,
+    "id": "cnH06R1M9Acy",
+    "title": "Ein paar Fragen zu deinem Auto:",
+    "type": "group",
+    "properties": {}
+  },
+  {
+    "index": 46,
+    "id": "pPkuIEOpP31d",
+    "title": "Ein paar Fragen zu deinem zweiten Auto:",
+    "type": "group",
+    "properties": {}
+  },
+  {
+    "index": 47,
+    "id": "9FGTfdqK6Oe1",
+    "title": "Bist du bei einem Carsharing-Dienst angemeldet?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 48,
+    "id": "8nOtos4kAnY4",
+    "title": "Welche Art von Autos werden beim Carsharing genutzt?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Batteriebetriebene Elektrofahrzeuge (EV)",
+        "Autos mit Verbrennungsmotor (Benzin/Gas/Diesel)",
+        "Mischung aus Elektro- und Verbrennungsmotor (einschließlich Hybriden)"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 49,
+    "id": "YHMVsqqN2zGW",
+    "title": "An etwa wie vielen Tagen im Jahr nutzt du Autos eines Carsharing-Dienstes?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "1–10 Tage pro Jahr",
+        "10–20 Tage pro Jahr",
+        "20–30 Tage pro Jahr",
+        "30–60 Tage pro Jahr",
+        "60–180 Tage pro Jahr",
+        "180–365 Tage pro Jahr"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 50,
+    "id": "uJiuNkr93bvy",
+    "title": "Mietest du gelegentlich ein Auto?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Ja",
+        "Nein, nie"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 51,
+    "id": "ALQBveceXoFx",
+    "title": "Welche Art von Autos mietest du?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Batteriebetriebene Elektrofahrzeuge (EV)",
+        "Autos mit Verbrennungsmotor (Benzin/Gas/Diesel)",
+        "Mischung aus Elektro- und Verbrennungsmotor (einschließlich Hybriden)"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 52,
+    "id": "R9eKk7B1hQrN",
+    "title": "Wie oft mietest du ein Auto?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "An etwa wie vielen *Tagen im Jahr* mietest du ein Auto?",
+      "choices": [
+        "1–10 Tage pro Jahr",
+        "10–20 Tage pro Jahr",
+        "20–30 Tage pro Jahr",
+        "30–60 Tage pro Jahr",
+        "60–180 Tage pro Jahr",
+        "180–365 Tage pro Jahr"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 53,
+    "id": "rl7Tr22qkdAZ",
+    "title": "Fährst du gelegentlich mit dem Taxi?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Hier beziehen wir uns auf die Nutzung sowohl traditioneller Taxis als auch neuerer Dienste wie Uber und Lyft.",
+      "choices": [
+        "Ja",
+        "Nein, nie"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 54,
+    "id": "w4IgzgZPWxTr",
+    "title": "Welche Art von Taxis nutzt du?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Batteriebetriebene Elektrofahrzeuge (EV)",
+        "Autos mit Verbrennungsmotor (Benzin/Gas/Diesel)",
+        "Mischung aus Elektro- und Verbrennungsmotor (einschließlich Hybriden)"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 55,
+    "id": "jsquB0bgmlUy",
+    "title": "Wie oft fährst du mit dem Taxi?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Etwa wie viele *Taxifahrten* unternimmst du *pro Jahr*?",
+      "choices": [
+        "1–10 Taxifahrten",
+        "10–20 Taxifahrten",
+        "20–30 Taxifahrten",
+        "30–60 Taxifahrten",
+        "60–180 Taxifahrten",
+        "180–365 Taxifahrten",
+        "> 365 Taxifahrten"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 56,
+    "id": "31JsClyCFXWJ",
+    "title": "Wie oft nimmst du eine Fähre oder ein Kreuzfahrtschiff?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "An wie vielen *Tagen pro Jahr*?",
+      "choices": [
+        "0 Tage",
+        "1–10 Tage pro Jahr",
+        "10–20 Tage pro Jahr",
+        "20–30 Tage pro Jahr",
+        "30–60 Tage pro Jahr",
+        "60–180 Tage pro Jahr",
+        "180–365 Tage pro Jahr"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 57,
+    "id": "FBlvLPh60rCs",
+    "title": "Wie oft nutzt du öffentliche Verkehrsmittel?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "z. B. Bus, Zug, U-Bahn oder Straßenbahn",
+      "choices": [
+        "Nie / fast nie",
+        "1–2 Tage die Woche",
+        "2–3 Tage die Woche",
+        "3–4 Tage die Woche",
+        "4–7 Tage die Woche"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 58,
+    "id": "8pM51c0nFJ5s",
+    "title": "Wie oft gehst du zu Fuß oder nimmst das Fahrrad?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Hierzu zählen Wege zwischen deinem Zuhause und der Arbeit, Schule, Freizeitaktivitäten usw.",
+      "choices": [
+        "Nie / fast nie",
+        "1–2 Tage die Woche",
+        "2–3 Tage die Woche",
+        "3–4 Tage die Woche",
+        "4–7 Tage die Woche"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 59,
+    "id": "BOkvxzqOfron",
+    "title": "Besitzt, mietet oder least dein Haushalt die folgenden Fahrzeuge:",
+    "type": "group",
+    "properties": {}
+  },
+  {
+    "index": 60,
+    "id": "EGsSl4GV7q5W",
+    "title": "Gut gemacht, {{field:name}}! Du hast nun Teil 2 von 3 geschafft. Als Nächstes werde ich dir ein paar Fragen zu deinem Konsumverhalten stellen.",
+    "type": "statement",
+    "properties": {
+      "description": "Diese sind unterteilt in *Essen* und *Shopping* (Kleidung, Geräte usw.)."
+    }
+  },
+  {
+    "index": 61,
+    "id": "UoBDW8HHHrSH",
+    "title": "Wie häufig isst du *Rind* oder *Lamm*?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "zum Mittag- oder Abendessen",
+      "choices": [
+        "Nie / fast nie",
+        "1–2 Tage die Woche",
+        "2–3 Tage die Woche",
+        "3–4 Tage die Woche",
+        "4–7 Tage die Woche"
+      ]
+    },
+    "validations": {
+      "required": true
+    }
+  },
+  {
+    "index": 62,
+    "id": "DYSYobBSIwyT",
+    "title": "Wie häufig isst du eine auf pflanzlichen Produkten basierende Mahlzeit?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Hier beziehen wir uns auf Mahlzeiten, die kein Fleisch, Geflügel, Fisch oder Meeresfrüchte enthalten.",
+      "choices": [
+        "Nie / fast nie",
+        "1–2 Tage die Woche",
+        "2–3 Tage die Woche",
+        "3–4 Tage die Woche",
+        "4–7 Tage die Woche",
+        "Immer"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 63,
+    "id": "AZQ9sXflIlDV",
+    "title": "Wie viel von deiner ovo-lacto-vegetarischen Ernährung ist auch vegan?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Sprich ohne Eier und Milchprodukte.",
+      "choices": [
+        "Weniger als die Hälfte",
+        "Mehr als die Hälfte, aber nicht alles",
+        "Alles, ich bin Veganer*in"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 64,
+    "id": "RdWm4g5ZmOSw",
+    "title": "Wählst du bewusst saisonale Produkte?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Das bedeutet, dass du frische Lebensmittel kaufst, die gerade in Saison sind, statt Konserven, gefrorener oder importierter Produkte – z. B. Äpfel, Beeren und Pilze im Herbst.",
+      "choices": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 65,
+    "id": "OKUpAH3oQW3j",
+    "title": "Wählst du bewusst lokale Produkte?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Das bedeutet, dass du lokal produzierte Lebensmittel importierten Produkten vorziehst.",
+      "choices": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 66,
+    "id": "jwEEoDNPALbn",
+    "title": "Versorgst du dich (teilweise) selbst mit Essen?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Gemeint sind Lebensmittel, die du aus *eigenem Anbau*, durch *Jagd* oder *Fischen* gewinnst und die du zu Hause isst, anstatt Lebensmittel zu kaufen.",
+      "choices": [
+        "Ja",
+        "Nein"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 67,
+    "id": "1gJAQ9CRHTbE",
+    "title": "Wie viel von deinem Essen erhältst du aus eigenem Anbau, Jagd und Fischen?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "< 10 %",
+        "10–20 %",
+        "20–50 %",
+        "> 50 %"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 68,
+    "id": "OgQh7K2P1xVs",
+    "title": "Welche Aussage beschreibt deine Einstellung zu Lebensmittelabfällen am Besten?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Beispiele für Lebensmittelabfälle sind:\n– sich mehr Essen auf den Teller zu tun, als man isst\n– Reste einer Mahlzeit wegzuwerfen\n– Lebensmittel wegzuwerfen, deren Mindesthaltbarkeitsdatum abgelaufen ist",
+      "choices": [
+        "Ich tue alles, um Lebensmittelabfälle zu vermeiden.",
+        "Ich versuche, sie zu vermeiden, könnte aber mehr tun.",
+        "Ehrlich gesagt denke ich nicht wirklich darüber nach."
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 69,
+    "id": "xSMSw0KSNkIe",
+    "title": "Was tust du mit anfallenden Lebensmittelabfällen?",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Ich entsorge Lebensmittelabfälle mit dem Restmüll.",
+        "Ich entsorge Lebensmittelabfälle separat (z. B. auf dem Kompost)."
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 70,
+    "id": "QqUqV9BwXvAU",
+    "title": "Wie würdest du deinen Konsum von Palmöl beschreiben?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Palmöl ist ein sehr günstiges Rohmaterial, das in vielen industriellen Lebensmitteln verarbeitet ist, einschließlich in:\n– Süßigkeiten\n– Kräckern\n– Keksen\n– Nutella\n– Margarine",
+      "choices": [
+        "Ich tue alles, um Palmöl zu vermeiden.",
+        "Ich versuche, Palmöl zu vermeiden, könnte aber mehr tun.",
+        "Ehrlich gesagt denke ich nicht wirklich darüber nach."
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 71,
+    "id": "Dw7nz0pXlG8m",
+    "title": "Wie würdest du deinen Verbrauch von Einwegprodukten aus Plastik beschreiben?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Beispiele für solche Produkte sind:\n– Plastiktüten\n– Plastikflaschen\n– Plastikverpackungen von Lebensmitteln\n– Plastikbecher, Strohhalme und Plastikbesteck",
+      "choices": [
+        "Ich tue alles, um Einwegprodukte aus Plastik zu vermeiden.",
+        "Ich versuche, sie zu vermeiden, könnte aber mehr tun.",
+        "Ehrlich gesagt denke ich nicht wirklich darüber nach."
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 72,
+    "id": "qt9OxwwkPUa2",
+    "title": "Welche Aussagen über das Kaufverhalten passen am besten zu dir?",
+    "type": "group",
+    "properties": {
+      "description": "Die folgenden Fragen beziehen sich auf das Kaufen von Konsumgütern, die *keine Lebensmittel* sind, wie zum Beispiel Kleidung, Elektronik, Sportausrüstung, Kosmetik und Haushaltsgeräte\\*."
+    }
+  },
+  {
+    "index": 73,
+    "id": "38TBFMr2OrZB",
+    "title": "Gleichst du deine CO2-Bilanz oder einen Teil davon aus?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "CO2-Ausgleich bedeutet, dass du Geld an Projekte spendest, die CO2-Emissionen reduzieren.\n\nDiese Klimaprojekte sind meistens in Entwicklungsländern angesiedelt, um dort von fossilen Brennstoffen zu erneuerbaren Energien (wie Solar- oder Windenergie) zu wechseln oder durch Aufforstung oder Waldschutz CO2 zu binden.",
+      "choices": [
+        "Nein, ich habe noch nie meine Emissionen ausgeglichen.",
+        "Ja, ich tue das gelegentlich für einzelne Reisen.",
+        "Ja, ich kompensiere für meinen gesamten Lebensstil."
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 74,
+    "id": "bi87kQsGtQOn",
+    "title": "Wunderbar {{field:name}}, das war die letzte Frage!",
+    "type": "statement",
+    "properties": {
+      "description": "Ich berechne nun deinen * ökologischen Fußabdruck *, ohne dabei einen Kohlenstoffausgleich vorzunehmen.\n\nDann mache ich Vorschläge, was du tun kannst, um deinen Fußabdruck zu verringern. Die Vorschläge, auf die du mit *Ja* antwortest, werden als dein *Klimaversprechen* zusammengestellt.\n\nAbschließend zeige ich auf, wie groß dein CO2-Fußabdruck nach wie vor ist und was es kosten würde, ihn durch die *Unterstützung klimafreundlicher Projekte* auszugleichen."
+    }
+  },
+  {
+    "index": 75,
+    "id": "gXBiE35l37Gj",
+    "title": "Wir haben deine Ergebnisse!",
+    "type": "picture_choice",
+    "properties": {
+      "description": "*Aber zuerst darfst du selbst deine CO2-Bilanz einschätzen.*\n\nMenschen, die in der westlichen Welt leben, haben typischerweise eine Bilanz von etwa *10 Tonnen CO2e* pro Jahr und der derzeitige globale Durchschnitt liegt bei *5 Tonnen CO2e* pro Person und Jahr. Um die Auswirkungen des Klimawandels zu reduzieren, müssen wir diesen Durchschnitt bis zum Jahr 2030 auf *2 Tonnen CO2e* pro Person senken.\n\nBasierend auf diesen Informationen, *was glaubst du, in welcher Kategorie du bist?*",
+      "choices": [
+        "Klimaschurke (> 10 Tonnen)",
+        "Klimakonsument (5–10 Tonnen)",
+        "Klimafreund (2–5 Tonnen)",
+        "Klimaheld (< 2 Tonnen)"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 76,
+    "id": "fqb1HRuJvFrF",
+    "title": "Wir haben deine Ergebnisse!",
+    "type": "picture_choice",
+    "properties": {
+      "description": "*Aber zuerst darfst du selbst deine CO2-Bilanz einschätzen.*\n\nMenschen, die in der westlichen Welt leben, haben typischerweise eine Bilanz von etwa *10 Tonnen CO2e* pro Jahr und der derzeitige globale Durchschnitt liegt bei *5 Tonnen CO2e* pro Person und Jahr. Um die Auswirkungen des Klimawandels zu reduzieren, müssen wir diesen Durchschnitt bis zum Jahr 2030 auf *2 Tonnen CO2e* pro Person senken.\n\nBasierend auf diesen Informationen, *was glaubst du, in welcher Kategorie du bist?*",
+      "choices": [
+        "Klimaschurkin (> 10 Tonnen)",
+        "Klimakonsument (5–10 Tonnen)",
+        "Klimafreundin (2–5 Tonnen)",
+        "Klimaheldin (< 2 Tonnen)"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 77,
+    "id": "c5nktIDJJ5yM",
+    "title": "Die Antwort ist {{var:score}} Tonnen CO2e pro Jahr.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Das bedeutet, du bist ein *Klimaschurke*.\nAber du hast bereits erste gute Schritte gemacht. Weiter so!\nMöchtest du sehen, was du schon gut machst?\nOder sollen wir ein paar einfache Wege entdecken, wie du dich verbessern kannst?",
+      "choices": [
+        "Zeig mir zuerst, was ich gut mache",
+        "Überspringen und sehen, wie ich mich verbessern kann"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 78,
+    "id": "s2tcKbBJQGpv",
+    "title": "Die Antwort ist {{var:score}} Tonnen CO2e pro Jahr.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Das bedeutet, dass du *Klimakonsument* bist.\nDu machst bereits einiges richtig, weiter so.\nMöchtest du sehen, was du schon gut machst?\nOder sollen wir entdecken, wie du es noch besser machen kannst?",
+      "choices": [
+        "Zeig mir zuerst, was ich gut mache",
+        "Überspringen und sehen, wie ich es noch besser machen kann"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 79,
+    "id": "Vj506UYCSb1R",
+    "title": "Die Antwort ist {{var:score}} Tonnen CO2e pro Jahr.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Das bedeutet, du bist ein *Klimafreund*.\nDu machst schon vieles richtig, richtig gut!\nMöchtest du sehen, was bereits gut funktioniert?\nOder sollen wir ein paar kleine Wege entdecken, wie du noch weiter gehen kannst?",
+      "choices": [
+        "Zeig mir zuerst, was ich gut mache",
+        "Überspringen und sehen, wie ich noch weiter gehen kann"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 80,
+    "id": "eCnfa0anKP2Z",
+    "title": "Die Antwort ist {{var:score}} Tonnen CO2e pro Jahr.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Das bedeutet, du bist ein *Klimaheld*.\nDu machst das großartig, wirklich beeindruckend.\nMöchtest du sehen, was du schon gut machst?\nOder sollen wir ein paar kleine Wege entdecken, wie du noch weiter gehen kannst?",
+      "choices": [
+        "Zeig mir zuerst, was ich gut mache",
+        "Überspringen und sehen, wie ich noch weiter gehen kann"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 81,
+    "id": "55UCU7B817kN",
+    "title": "Die Antwort ist {{var:score}} Tonnen CO2e pro Jahr.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Das bedeutet, du bist eine *Klimaschurkin*.\nAber du hast bereits erste gute Schritte gemacht. Weiter so!\nMöchtest du sehen, was du schon gut machst?\nOder sollen wir ein paar einfache Wege entdecken, wie du dich verbessern kannst?",
+      "choices": [
+        "Zeig mir zuerst, was ich gut mache",
+        "Überspringen und sehen, wie ich mich verbessern kann"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 82,
+    "id": "NyHW8EPBNqve",
+    "title": "Die Antwort ist {{var:score}} Tonnen CO2e pro Jahr.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Das bedeutet, dass du *Klimakonsument* bist.\nDu machst bereits einiges richtig, weiter so.\nMöchtest du sehen, was du schon gut machst?\nOder sollen wir entdecken, wie du es noch besser machen kannst?",
+      "choices": [
+        "Zeig mir zuerst, was ich gut mache",
+        "Überspringen und sehen, wie ich es noch besser machen kann"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 83,
+    "id": "siHDNKTqa9Z8",
+    "title": "Die Antwort ist {{var:score}} Tonnen CO2e pro Jahr.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Das bedeutet, du bist eine *Klimafreundin*.\nDu machst schon vieles richtig, richtig gut!\nMöchtest du sehen, was bereits gut funktioniert?\nOder sollen wir ein paar kleine Wege entdecken, wie du noch weiter gehen kannst?",
+      "choices": [
+        "Zeig mir zuerst, was ich gut mache",
+        "Überspringen und sehen, wie ich noch weiter gehen kann"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 84,
+    "id": "dXIKVCh0TN2m",
+    "title": "Die Antwort ist {{var:score}} Tonnen CO2e pro Jahr.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Das bedeutet, du bist eine *Klimaheldin*.\nDu machst das großartig, wirklich beeindruckend.\nMöchtest du sehen, was du schon gut machst?\nOder sollen wir ein paar kleine Wege entdecken, wie du noch weiter gehen kannst?",
+      "choices": [
+        "Zeig mir zuerst, was ich gut mache",
+        "Überspringen und sehen, wie ich noch weiter gehen kann"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 85,
+    "id": "VxwVzYdmQdtK",
+    "title": "Kleinere Haushalte verursachen weniger CO2-Belastung.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Unsere Gesamtauswirkungen auf das Klima ergeben sich sowohl aus der Menge der von uns (pro Kopf) verursachten Treibhausgasemissionen als auch aus der Anzahl der Menschen auf dem Planeten. Ein Haushalt mit vielen Kindern hat einen deutlich größeren ökologischen Fußabdruck.",
+      "choices": [
+        "Weiter >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 86,
+    "id": "lVBNu29Pl6yG",
+    "title": "Die Verbesserung der Wärmedämmung hat die CO2-Bilanz deines Zuhauses beträchtlich gesenkt.",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Weiter >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 87,
+    "id": "wqzC0xGhRhnu",
+    "title": "Gratuliere {{field:name}}, dein Zuhause hat eine klimafreundliche Heizung. Verglichen mit Gebäuden, die mit Öl oder Gas beheizt werden, ist deine CO2-Bilanz im Bereich Heizung mindestens *80 %* niedriger.",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Weiter >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 88,
+    "id": "miNiB3gFab5R",
+    "title": "Dass du über deinen Energieverbrauch nachdenkst, macht einen Unterschied – sowohl für deine Brieftasche als auch für die Umwelt.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "In Haushalten, die aktiv versuchen, ihren Energieverbrauch zu reduzieren, ist dieser mindestens 20 % geringer als der Durchschnitt.\n\nDie Hälfte erreichst du bereits mit alltäglichen Gewohnheiten, wie z. B. die Lichter auszuschalten oder Spül- und Waschmaschinen im Eco-Modus laufen zu lassen.\n\nDie andere Hälfte besteht daraus, bewusst energiesparende Glühbirnen, Geräte und Elektronik für dein Zuhause zu kaufen.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 89,
+    "id": "7z7jpUqu0iZs",
+    "title": "Mit einer eigenen Stromversorgung bist du deiner Zeit weit voraus. Gut gemacht, {{field:name}}! ",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Das bedeutet, dass deine CO2-Bilanz im Bereich Stromverbrauch fast bei Null ist.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 90,
+    "id": "0hzcq3xa3Zkw",
+    "title": "Dein umweltfreundlicher Stromvertrag macht einen deutlichen Unterschied, {{field:name}}!\nDeine Emissionen aus Stromerzeugung sind gut 90 % geringer als bei einem normalen Vertrag.",
+    "type": "multiple_choice",
+    "properties": {
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 91,
+    "id": "CQ2vvFisx2fI",
+    "title": "Sehr gut, du lebst in einem Land, das das Pariser Abkommen unterzeichnet hat.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Bei diesem globalen Abkommen haben sich die unterzeichnenden Staaten verpflichtet, Treibhausgasemissionen zu verringern und das Problem des Klimawandels zu bewältigen.\n\nFür dich persönlich bedeutet das, dass die Emissionen der Dienstleistungen und Produkte, die du in deinem Land nutzt, über die kommenden Jahre reduziert werden.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 92,
+    "id": "46XDwKGF1kO9",
+    "title": "Toll,{{field:name}}, du unternimmst keine Inlands- oder Kurzstreckenflüge.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Jeder Kurzstreckenflug (Hin- und Rückflug) erhöht deine CO2-Bilanz um rund *300 kg CO2e*.\nIndem du stattdessen den Zug oder Bus, die Fähre oder das Auto (mit mehreren Fahrgästen) nimmst, kannst du dies um *50–99 %* reduzieren.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 93,
+    "id": "ZmSuHfYsZKio",
+    "title": "Du unternimmst keine Langstreckenflüge. Das macht einen gewaltigen Unterschied.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Jeder Flug über 8 Stunden (Hin- und Rückflug) erhöht deine CO2-Bilanz um mehr als *2 Tonnen CO2e*. Das ist dein gesamtes nachhaltiges Emissionsbudget für ein ganzes Jahr.\n\nDen Urlaub auf dem eigenen Kontinent zu verbringen, anstatt um die halbe Welt zu reisen, ist die effektivste Maßnahme, um die eigene CO2-Bilanz zu reduzieren.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 94,
+    "id": "aLoGjJJP6YP4",
+    "title": "Du hast kein Auto.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Gut gemacht, {{field:name}}! Ohne eigenen PKW verursachst du im Jahr etwa *1,1 Tonnen CO2e* weniger Emissionen als der durchschnittliche Autobesitzer. Das macht einen großen Unterschied in deiner CO2-Bilanz.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 95,
+    "id": "GwXsVsLlmDYD",
+    "title": "Fantastisch, {{field:name}}! Mit einem Elektroauto bist du deiner Zeit weit voraus.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Dein Auto belastet unser Klima circa *90 %* weniger als ein vergleichbares Benzin- oder Diesel-Fahrzeug.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 96,
+    "id": "6cAh4L9s74nQ",
+    "title": "Deine Entscheidung für ein Hybrid-Auto ist ein wichtiger Schritt auf dem Weg zum klimafreundlichen Autofahren.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Dein Hybrid-Auto reduziert deine Emissionen beim Fahren um *30–70 %*, verglichen mit einem konventionellen Benzin- oder Diesel-Motor.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 97,
+    "id": "48IsSgGNjQZ6",
+    "title": "Du kannst ohne fossile Brennstoffe tanken",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Indem du auf fossile Brennstoffe verzichtest und dein Auto stattdessen mit Biokraftstoffen betankst, verringerst du deinen ökologischen Fußabdruck im Vergleich zu einem herkömmlichen Benzinmotor erheblich.",
+      "choices": [
+        "Weiter >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 98,
+    "id": "1AgQkNcCZnFB",
+    "title": "Auf die Größe kommt es an.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Dein kleines Auto verursacht rund *20 %* weniger Emissionen als ein durchschnittlicher PKW.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 99,
+    "id": "zcwMKmEYJuUg",
+    "title": "Großartig, {{field:name}}! Deine Entscheidung fürs Carsharing ist vernünftig.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Da du am Carsharing teilnimmst, benutzt du wahrscheinlich nur dann ein Auto, wenn du es wirklich brauchst.\n\nAuch gibt dir das tendenziell Zugang zu neueren Autos, die entweder elektrisch betrieben sind oder weniger Treibstoff verbrauchen.\n\nDu hast außerdem jedes Mal die Möglichkeit, ein Auto mit der richtigen Größe für den jeweiligen Zweck deiner Fahrt zu wählen.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 100,
+    "id": "YRBFyukk7JoJ",
+    "title": "Bravo! Du nimmst dir Zeit für diesen Test.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Der erste Schritt, um Emissionen zu vermeiden, ist mehr darüber zu erfahren, wie sie entstehen. Und genau jetzt bist du hier und findest heraus, wie sich deine eigene CO2-Bilanz zusammensetzt und was du tun kannst, um sie zu reduzieren.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 101,
+    "id": "12US45tnuo4Z",
+    "title": "Der Verzicht auf Rindfleisch hat großen Einfluss auf deine CO2-Bilanz.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Kühe und Schafe sind Wiederkäuer, die beim Verdauen große Mengen Methangas produzieren.\n\nEin Kilogramm Methangas hat den gleichen Treibhauseffekt wie 28 Kilogramm CO2. Das bedeutet, dass Rind- und Lammfleisch eine viel größere CO2-Bilanz haben als andere Proteinquellen.\n\nJedes Kilogramm Rind oder Lamm auf dem Teller verursacht Emissionen von 15–20 kg CO2e. Das ist ein Vielfaches der Emissionen aus anderen Proteinquellen (z. B. Geflügel, Fisch, Schweinefleisch, Eier, Milchprodukte, Hülsenfrüchte), die eine Bilanz von 1–6 kg CO2e pro Kilogramm haben.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 102,
+    "id": "LIwzORalfODT",
+    "title": "Deine Entscheidung, dich vegetarisch zu ernähren, macht einen großen Unterschied für das Klima.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "In der westlichen Welt beträgt die durchschnittliche CO2-Bilanz im Bereich Nahrungsmittel etwa *1,7 Tonnen CO2e* pro Jahr. Durch eine komplett vegetarische Ernährung kann dies nahezu halbiert werden.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 103,
+    "id": "1zYmICAZS1uv",
+    "title": "Beeindruckend, {{field:name}}! Dass du bevorzugt vegane Mahlzeiten isst, hat sogar noch größere Vorteile.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Eine vollständig vegane Ernährung hat eine etwa 15 % geringere CO2-Bilanz als eine vegetarische, die Eier und Milchprodukte beinhaltet.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 104,
+    "id": "kim2UtNyk4sa",
+    "title": "Dass du über die Herkunft deines Essens nachdenkst, ist gut fürs Klima.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Indem du konsequent *lokale* oder *saisonale* Produkte wählst, reduzierst du die CO2-Bilanz deiner Ernährung um mehr als *10 %.*",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 105,
+    "id": "bL2uRyCeSjs9",
+    "title": "Lebensmittelabfälle sind eine wahre Klimafalle. Toll, dass du versuchst, das zu vermeiden.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Etwa 40 % aller produzierten Lebensmittel landen im Abfall: Die Hälfte davon während der Produktion und Auslieferung, der Rest wird zu Hause weggeworfen.\n\nDas bedeutet, dass du beim Versuch, Lebensmittelabfälle zu vermeiden und auch nur halb so viel wegzuwerfen wie deine Nachbarn, deine CO2-Bilanz im Bereich Lebensmittel bereits um *10 %* reduzieren kannst!",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 106,
+    "id": "Yv9WID0zDkBV",
+    "title": "Prima, {{field:name}}! Die Entscheidung, deinen Plastikverbrauch zu minimieren, hilft dem Klima.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Jedes produzierte Kilogramm Plastik erzeugt etwa 3–6 kg CO2e.\n\nBei einem durchschnittlichen Plastikverbrauch in der westlichen Welt von etwa 50 kg pro Person macht das eine CO2-Bilanz von etwa *150–300 kg* pro Person und Jahr.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 107,
+    "id": "JMlbx3z19goT",
+    "title": "Du vermeidest Palmöl. Das hat eine große Wirkung. ",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Im Durchschnitt konsumieren wir etwa 15 kg Palmöl pro Person und Jahr.\n\nDa aktuell fast das gesamte produzierte Palmöl von Plantagen kommt, die für die Abholzung des Regenwaldes verantwortlich sind, liegen die Auswirkungen bei etwa 30 kg CO2e pro Kilogramm Öl.\n\nSelbst ohne Berücksichtigung der Abholzung hat Palmöl immer noch eine CO2-Bilanz von circa 3 kg CO2e pro Kilogramm Öl.\n\nBei wohlwollender Schätzung und der Annahme, dass nur die Hälfte des produzierten Palmöls die Abholzung von Regenwäldern verursacht hat, liegt die durchschnittliche Auswirkung immer noch bei 240 kg CO2e pro Person und Jahr.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 108,
+    "id": "47MIji06kv59",
+    "title": "Weniger einkaufen macht einen deutlichen Unterschied.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Der Verzicht auf Neuanschaffungen bedeutet, dass weniger Dinge produziert werden müssen, wodurch deren Emissionen vollständig entfallen.\n\nEtwa 15 % unseres CO2-Fußabdrucks stammen aus dem Einkauf von Geräten und Kleidung, was etwa *1,5 Tonnen CO2e* pro Person und Jahr ausmacht.\n\nWenn du zum Beispiel 20 % weniger einkaufst, würdest du etwa *0,3 Tonnen CO2e* pro Jahr vermeiden.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 109,
+    "id": "GlmNx3BJY5YZ",
+    "title": "Prima, {{field:name}}! Deine Haltung zu Second-Hand hat große Vorteile.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Mit dem Kauf oder Verkauf von gebrauchten Sachen senkst du sowohl deine eigene CO2-Bilanz als auch die der anderen Person.\n\nDabei spielt es keine Rolle, ob du deine Sachen verschenkst oder verkaufst. Entscheidend ist, dass sie weiterverwendet werden und dadurch die Abgabe von CO2-Emissionen in die Atmosphäre verhindert wird, die bei der Herstellung neuer Produkte entstehen würden.\n\nAuch Dinge zu leihen oder zu mieten hat übrigens einen ähnlichen Effekt.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 110,
+    "id": "FV0wpEnsCWnh",
+    "title": "Du bist ein Recycling-Star!",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Dank Alltagsheld*innen wie dir, die versuchen, alles richtig zu recyceln, kommen wir dem Ziel einer klimafreundlichen Gesellschaft näher.",
+      "choices": [
+        "Weiter >>",
+        "Zum Ende springen >>"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 111,
+    "id": "r38MYQZIYQux",
+    "title": "Okay {{field:name}}, sicher fragst du dich nun, was du tun kannst, um Klimaheld*in zu werden?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Dein CO2-Fußabdruck beträgt *{{var:start}}** Tonnen CO2e/Jahr*, bestehend aus:\n- Zuhause: {{var:housing}} Tonnen\n- Reisen: {{var:travel}} Tonnen\n- Verbrauch: {{var:consumption}} Tonnen",
+      "choices": [
+        "Ja, zeig mir wie ich meine CO2-Bilanz verbessern kann."
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 112,
+    "id": "5QUW4UWtsX8g",
+    "title": "Reduziere den Energieverbrauch deiner Klimaanlage!",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Dein CO2-Fußabdruck: {{var:score}} Tonnen\nDeine Klimabemühungen: *0.1 Tonnen*\n\nWäre es dir möglich, die Nutzung von Klimaanlagen zu reduzieren? Nutze beispielsweise eine Zeitschaltuhr, so dass sie sich nach 1-2 Stunden automatisch abschaltet.\n\nDu kannst den Energieverbrauch auch senken, indem du eine Mindesttemperatur festlegst. Jedes Grad reduziert den Energieverbrauch um etwa 6 %. Auch die regelmäßige Reinigung des Filters kann den Energieverbrauch senken.",
+      "choices": [
+        "Ja",
+        "Nein, das geht nicht"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 113,
+    "id": "IJNCIzeNYvkK",
+    "title": "Fange an, deinen eigenen Strom zu erzeugen.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Dein CO2-Fußabdruck: {{var:score}} Tonnen\nDeine Klimabemühungen : *0.5 Tonnen*\n\nHast du ein Haus, das mit Sonnenkollektoren ausgestattet werden könnte? Indem du deinen eigenen Strom produzierst, kannst du sowohl deinen CO2-Fußabdruck verringern als auch deine Stromversorgung sichern.\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, das ist keine Option für mich"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 114,
+    "id": "9Eb4SapQp3g0",
+    "title": "Wechsle zu einem umweltfreundlichen Stromvertrag.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "\nDeine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.5 Tonnen*\n\nBist du dabei?\n\nWenn Sie mit *„Ja“* antworten, wird die Reduzierung auf Ihren Klimafußabdruck angerechnet.",
+      "choices": [
+        "Ja",
+        "Nein, ich bin noch nicht soweit"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 115,
+    "id": "5CGtn7UvI9sj",
+    "title": "Wenn du eine zusätzliche Wärmedämmung in deinem Haus installierst, kann das die durch Heizung entstehenden CO2-Emissionen um 10–50 % senken.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Deine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.1 Tonnen*\n\nBist du dabei?\n\nWenn Sie mit *„Ja“* antworten, wird die Reduzierung auf Ihren Klimafußabdruck angerechnet.",
+      "choices": [
+        "Ja",
+        "Nein, das kann ich nicht"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 116,
+    "id": "SVN1zUo4PuPF",
+    "title": "Wechsle zu einer anderen Art der Heizung und senke deine Emissionen um mehr als 80 %.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Deine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *1.2 Tonnen*\n\nEs macht keinen großen Unterschied, ob du zu einer Luft- oder Erdreich-Wärmepumpe, zu Biogas, Fernwärme oder einer Stromheizung wechselst. Der größte Vorteil liegt darin, von fossilen Brennstoffen wegzukommen.\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, das ist nicht möglich"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 117,
+    "id": "k2V0P01Nym8k",
+    "title": "Vermeide Langstreckenflüge.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "\nDeine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *1.3 Tonnen*\n(wenn du einen Langstreckenflug durch einen Mittelstreckenflug ersetzt)\n\nBei Langstreckenflügen zu anderen Kontinenten (>8 Stunden) werden mehr als *2 Tonnen CO2e* pro Person verursacht, während ein Flug in Nachbarländer maximal *0.7 Tonnen CO2e* ausmacht.\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, das muss ich mir noch überlegen"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 118,
+    "id": "eDxDAsAev2SB",
+    "title": "Reduziere deine Mittelstreckenflüge.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "\nDeine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.4 Tonnen*\n(wenn du einen *Mittelstreckenflug (3–6 Stunden)* durch eine Reise auf dem Landweg ersetzt)\n\nAlles, was du tun musst, ist mit Zug, Bus, Fähre oder Auto (mit mehreren Fahrgästen) zu deinem Urlaubsort zu reisen, anstatt zu fliegen. Ist es zu weit, um auf dem Landweg zu reisen? Wie wäre es dann, den nächsten Urlaub mal in der Nähe zu planen?\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, ich bin noch nicht soweit."
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 119,
+    "id": "HJRu1DiQYC5m",
+    "title": "Vermeide Inlandsflüge.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "\nDeine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.3 Tonnen*\n(wenn du einen Inlandsflug durch eine Reise auf dem Landweg ersetzt)\n\nKann das Ziel stattdessen mit der Bahn, dem Bus, dem Auto oder der Fähre erreicht werden?",
+      "choices": [
+        "Ja",
+        "Nein, das ist nicht möglich."
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 120,
+    "id": "s8XQzWEF98O1",
+    "title": "Werde Mitglied bei einem Carsharing-Dienst, statt ein Auto zu leasen oder zu kaufen.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "\nDeine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.8 Tonnen*\n\nWenn du eine Kombination aus öffentlichen Verkehrsmitteln und Carsharing nutzt, wirst du nur dann mit dem Auto fahren, wenn es wirklich nötig ist. Außerdem bekommst du oftmals Zugang zu umweltfreundlicheren Fahrzeugen und kannst für jede Fahrt die passende Autogröße wählen.\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, das funktioniert in meiner Situation nicht"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 121,
+    "id": "bdnoEVSonxVX",
+    "title": "Steige auf ein umweltfreundlicheres Auto um.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "\nDeine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.7 Tonnen*\n\nAutofahrten machen einen Großteil deiner CO2-Bilanz aus. Wenn du dein jetziges Auto durch ein umweltfreundlicheres (Elektro, Hybrid oder Biotreibstoff) ersetzen würdest, könntest du deine Bilanz deutlich verringern!\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, das kann ich im Moment nicht"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 122,
+    "id": "i5EH6AIAobyG",
+    "title": "Frag immer nach einem umweltfreundlichen Auto, wenn du eines mietest.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "\nDeine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.1 Tonnen*\n\nDie Autoverleiher sind beim Thema klimafreundliche Treibstoffe noch etwas hinterher, aber indem du jedes Mal um ein umweltfreundliches Fahrzeug bittest, kannst du darauf Einfluss nehmen.\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, das ist mir zu viel Aufwand."
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 123,
+    "id": "1nhusy2jnIZU",
+    "title": "Frag immer nach einem umweltfreundlichen Auto, wenn du ein Taxi bestellst.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "\nDeine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.1 Tonnen*\n\nIn vielen Ländern hat die Taxi-Branche mit der Umstellung auf Fuhrparks ohne fossile Brennstoffe begonnen und bei den meisten Unternehmen kann man ein umweltfreundliches Fahrzeug wählen. Indem du das jedes Mal tust, verringerst du deine eigene CO2-Bilanz und animierst die Unternehmen dazu, ihr Angebot an klimafreundlichen Fahrzeugen auszubauen.\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, das werde ich bestimmt vergessen."
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 124,
+    "id": "gjsHpSy0ESXT",
+    "title": "Wäre es für dich möglich, mehr mit dem Rad zu fahren oder zu Fuß zu gehen?",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Dein CO2-Fußabdruck: {{var:score}} Tonnen\nDeine Klimabemühungen: *0.1 Tonnen*\n\nDie umweltfreundlichste Art, sich fortzubewegen, ist zu Fuß oder mit dem Fahrrad.\n\nIst es eine Option für dich (oder andere Erwachsene in deinem Haushalt), mehr mit dem Fahrrad zu fahren oder zu Fuß zu gehen?",
+      "choices": [
+        "Ja",
+        "Nein, das ist keine Option für mich"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 125,
+    "id": "PvhjLz5FkghL",
+    "title": "Iss weniger Rind- und Lammfleisch.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Dein CO2-Fußabdruck: {{var:score}} Tonnen\nDeine Klimabemühungen : *0.5 Tonnen*\n\nKühe und Schafe sind Wiederkäuer, die große Mengen an Methangas ausstoßen, das einen 28-mal höheren Treibhauseffekt hat als Kohlendioxid.\n\nDer Verzehr von Rind- und Lammfleisch verursacht Emissionen von *15–30 kg CO2e pro kg Lebensmittel*. Das ist um ein Vielfaches höher als bei anderen Proteinquellen (Geflügel, Fisch, Schweinefleisch, Eier, Milchprodukte, Hülsenfrüchte), die einen Fußabdruck von 1–6 kg CO2e pro kg Lebensmittel haben.\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, das schaffe ich nicht. Ich esse viel zu gerne Fleisch."
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 126,
+    "id": "skKfP05Xkuu9",
+    "title": "Iss häufiger vegetarisch.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Deine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.2 Tonnen*\n(wenn du wöchentlich 2–3 Mahlzeiten auf vegetarisch umstellst)\n\nBist du dabei?\n\nIndem du mit *„Ja“* antwortest, gibst du dir selbst das Versprechen, diese Veränderung durchzuführen, und der Klimabeitrag wird von deiner aktuellen CO2-Bilanz abgezogen.",
+      "choices": [
+        "Ja",
+        "Nein, das ist ein zu großer Schritt für mich"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 127,
+    "id": "L9VMM782QtGd",
+    "title": "Iss häufiger vegan.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Deine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.1 Tonnen*\n(wenn du wöchentlich 2–3 Mahlzeiten auf vegan umstellst)\n\nVegetarisches Essen hat viel weniger schlechten Einfluss auf das Klima als Fleisch, aber du kannst deine CO2-Bilanz sogar noch weiter verbessern, indem du öfter mal vegan isst. Die größte Wirkung erreichst du durch das Einschränken des Konsums von Hartkäse aus Kuh-, Schafs- und Ziegenmilch.\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, es ist schon schwer genug, meinen vegetarischen Speiseplan einzuhalten."
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 128,
+    "id": "LeOqIGEhRXwB",
+    "title": "Versuche, saisonal zu essen.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Deine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.1 Tonnen*\n\nVersuche, Lebensmittel einzukaufen, die gerade in Saison sind. Diese erfordern weniger Ressourcen in der Herstellung und erzeugen außerdem weniger Lebensmittelabfälle in der Produktionskette.\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, da muss ich zu viel beachten"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 129,
+    "id": "t5YUUmCqMBFA",
+    "title": "Kaufe möglichst lokale Produkte.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Deine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.1 Tonnen*\n\nWenn du mehr Lebensmittel kaufst, die lokal angebaut wurden, reduziert das die Emissionen des Transports. Kürzere Transportwege bedeuten außerdem auch frischeres Essen und besserer Geschmack!\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, da muss ich zu viel beachten."
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 130,
+    "id": "CE4qNbEt02V0",
+    "title": "Vermeide Lebensmittelabfälle.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Deine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.2 Tonnen*\n\nEtwa 40 % aller produzierten Lebensmittel landen im Abfall. Die Hälfte davon geschieht während der Produktion und Verteilung, die andere Hälfte wird zu Hause in der Küche weggeworfen.\n\nDas bedeutet, wenn du versuchst, deine Lebensmittelabfälle auch nur um die Hälfte zu reduzieren, kannst du deine CO2-Bilanz im Bereich Lebensmittel bereits um *10 %* senken!\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, das kann ich unmöglich schaffen"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 131,
+    "id": "8QkmFBYiC1Ss",
+    "title": "Lege dir einen Kompost zu.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Dein CO2-Fußabdruck : {{var:score}} Tonnen\nDeine Klimabemühungen : *0.1 Tonnen*\n\nWenn Lebensmittelabfälle in deiner Gemeinde nicht getrennt gesammelt werden, ist die nächstbeste Möglichkeit die Herstellung eines eigenen Komposts: Dieser kann sowohl deinen CO2-Fußabdruck verringern als auch als Bodenverbesserung für die Pflanzen in deinem Garten dienen.\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, das ist nicht möglich"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 132,
+    "id": "HRDDuK0U6lrR",
+    "title": "Entscheide dich für klimafreundliche Tiernahrung.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Dein Kohlenstoff-Fußabdruck : {{var:score}} Tonnen\nDeine Klimabemühungen: *0.1 Tonnen*\n\nDie Klimabelastung durch unsere Haustiere ergibt sich hauptsächlich aus dem Futter, das wir für sie kaufen. Zu den klimafreundlichen Futtermitteln gehören Tiernahrung aus pflanzlichen Proteinen sowie Futter aus Lebensmittelabfällen, die sonst im Abfall landen würden.\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, das muss ich erst noch etwas genauer untersuchen"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 133,
+    "id": "7BtExLo2OTNs",
+    "title": "Vermeide Produkte, die Palmöl enthalten.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Deine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0,1 Tonnen*\n\nPalmöl ist ein günstiges Rohmaterial, das in vielen industriellen Lebensmitteln enthalten ist (z. B. Knabbereien, Kekse, Speiseeis, Süßigkeiten, Nutella etc.). Jedes Jahr konsumieren wir rund 15 kg Palmöl pro Person.\n\nNahezu das gesamte Palmöl stammt von Plantagen, die für die Abholzung von Regenwäldern verantwortlich sind – es macht also einen großen Unterschied, wenn du Produkte mit Palmöl vermeidest und Produkte wählst, die das RSPO-Umweltzeichen tragen!\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, dafür mag ich billige Süßigkeiten zu sehr"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 134,
+    "id": "qhdZxiRmBsD7",
+    "title": "Reduziere deinen Plastikverbrauch.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Deine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.1 Tonnen*\n(wenn du bewusst deinen Verbrauch von Einwegplastik, wie z. B. Tüten, Flaschen, Verpackungen, Strohhalmen, Besteck usw. reduzierst)\n\nPlastik wird aus Erdöl hergestellt und jedes Kilogramm produziertes Plastik erzeugt etwa 3–6 Kilogramm CO2-Emissionen. Da unser durchschnittlicher Jahresverbrauch von Plastik bei rund 50 kg pro Person liegt, ergibt sich daraus eine Bilanz von circa 150–300 kg CO2e pro Person und Jahr.\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, das ist mir zu aufwendig"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  },
+  {
+    "index": 135,
+    "id": "Rr2MdVxg8WAD",
+    "title": "Entscheide dich bevorzugt für Produkte aus Holz, Hanf und Bambus.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Dein CO2-Fußabdruck : {{var:score}} Tonnen\nDeine Klimabemühungen : *0.1 Tonnen*\n\nDie Wahl des Rohmaterials hat einen großen Einfluss auf den Kauf von Dingen wie *Möbel, Heimdekoration, Gebrauchsgegenstände, Baumaterialien, Spielzeug, Textilien* und vielem mehr.\n\nProdukte aus Metall, Glas, Plastik, Baumwolle oder Stein verursachen große Kohlenstoffemissionen, während Produkte aus Holz, Hanf oder Bambus oft mehr CO2 binden, als zu ihrer Herstellung benötigt wird.\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, da muss ich zu viel beachten."
+      ]
+    },
+    "validations": {
+      "required": true
+    }
+  },
+  {
+    "index": 136,
+    "id": "rYstXFdgLCvf",
+    "title": "Kauf weniger.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Deine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.3 Tonnen*\n(wenn du deine Käufe von Kleidung und Geräten um 20 % reduzierst)\n\nIst es wirklich nötig, diesen einen Artikel zu besitzen, den du als nächstes kaufen möchtest? Oder könntest du ihn stattdessen vielleicht auch *mieten* oder *ausleihen*?\n\nWenn du wirklich etwas kaufen musst, entscheide dich lieber für *Qualität* als für billige Produkte, die sich schnell abnutzen. Es ist die Anzahl der Dinge, die einen Unterschied in deiner CO2-Bilanz macht, nicht der Preis, den du für sie bezahlst.\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, das ist zu schwer für mich"
+      ]
+    },
+    "validations": {
+      "required": true
+    }
+  },
+  {
+    "index": 137,
+    "id": "AtGROEFxJDr0",
+    "title": "Kauf mehr Gebrauchtwaren.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Deine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.2 Tonnen*\n\n*Second-Hand-Artikel* zu kaufen ist eine einfache Möglichkeit, deine Emissionen zu verringern, denn es bedeutet, dass weniger neue Dinge produziert werden müssen.\n\nGenauso kann es ein großer Gewinn für das Klima sein, Dinge, die man nicht mehr braucht, zu verkaufen oder zu spenden.\n\nBist du dabei?",
+      "choices": [
+        "Ja",
+        "Nein, darüber muss ich erst einmal nachdenken"
+      ]
+    },
+    "validations": {
+      "required": true
+    }
+  },
+  {
+    "index": 138,
+    "id": "qnlDsMOuHjmx",
+    "title": "Optimiere dein Recycling.",
+    "type": "multiple_choice",
+    "properties": {
+      "description": "Deine CO2-Bilanz: {{var:score}} Tonnen\nDein Klima-Beitrag: *0.1 Tonnen*\n\nBist du bereit, dich ein bisschen anzustrengen und dafür zu sorgen, dass wirklich alles, was du wegwirfst, korrekt recycelt wird?\n\nIndem du mit *„Ja“* antwortest, gibst du dir selbst das Versprechen, diese Veränderung durchzuführen, und der Klimabeitrag wird von deiner aktuellen CO2-Bilanz abgezogen.",
+      "choices": [
+        "Ja",
+        "Nein, das scheint mir den Aufwand nicht wert zu sein"
+      ]
+    },
+    "validations": {
+      "required": false
+    }
+  }
+]

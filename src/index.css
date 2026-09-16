@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6, .font-cartoon {
+    font-family: 'Fredoka', cursive, sans-serif;
+  }
+}
+
+/* Friendly cartoon card & button styling with crisp borders and soft shadows */
+.cartoon-card {
+  background-color: rgba(255, 255, 255, 0.92);
+  border: 3px solid #0f172a;
+  box-shadow: 0 8px 0px 0px #0f172a;
+  border-radius: 1.5rem;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cartoon-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 0px 0px #0f172a;
+}
+
+.cartoon-card-selected {
+  background-color: #ecfdf5;
+  border: 3px solid #059669;
+  box-shadow: 0 8px 0px 0px #047857;
+}
+
+.cartoon-btn-primary {
+  background-color: #10b981;
+  color: #ffffff;
+  border: 3px solid #0f172a;
+  box-shadow: 0 5px 0px 0px #0f172a;
+  border-radius: 1rem;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.cartoon-btn-primary:hover {
+  background-color: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0px 0px #0f172a;
+}
+
+.cartoon-btn-primary:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0px 0px #0f172a;
+}
+
+.cartoon-btn-secondary {
+  background-color: #ffffff;
+  color: #0f172a;
+  border: 3px solid #0f172a;
+  box-shadow: 0 5px 0px 0px #0f172a;
+  border-radius: 1rem;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.cartoon-btn-secondary:hover {
+  background-color: #f8fafc;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0px 0px #0f172a;
+}
+
+.cartoon-btn-secondary:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0px 0px #0f172a;
+}
+
+.cartoon-btn-amber {
+  background-color: #f59e0b;
+  color: #0f172a;
+  border: 3px solid #0f172a;
+  box-shadow: 0 5px 0px 0px #0f172a;
+  border-radius: 1rem;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.cartoon-btn-amber:hover {
+  background-color: #d97706;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0px 0px #0f172a;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #e2e8f0;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #10b981;
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+}

@@ -1,12 +1,30 @@
-node_modules/
-dist/
-build/
-.DS_Store
+# Logs
+logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
 raw_climatehero_data/all_code_dump.js
 raw_climatehero_data/typeform_*.html
 raw_climatehero_data/form_full.json
 raw_climatehero_data/form_logic.json
 raw_climatehero_data/detailed_questions.json
-.env
-.env.local
