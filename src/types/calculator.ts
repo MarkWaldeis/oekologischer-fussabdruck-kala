@@ -102,3 +102,10 @@ export interface PersonaProfile {
   summary: string;
   reactionMessage: string;
 }
+
+export interface UserAchievement {
+  id: string;
+  title: string;
+  icon: string;
+  praise: string;
+}

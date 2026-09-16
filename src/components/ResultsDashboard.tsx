@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import type { UserResponses, CalculationBreakdown } from '../types/calculator';
-import { getPersona, CLIMATE_PLEDGES } from '../data/questions';
+import { getPersona, getApplicablePledgesAndAchievements } from '../data/questions';
 import confetti from 'canvas-confetti';
-import { CheckCircle2, Share2, Printer, RotateCcw, Award } from 'lucide-react';
+import { Share2, Printer, RotateCcw, Award, Check, Sparkles } from 'lucide-react';
 
 interface ResultsDashboardProps {
   responses: UserResponses;
@@ -10,18 +10,39 @@ interface ResultsDashboardProps {
   onRestart: () => void;
 }
 
+// Geometric helper for perfectly straight SVG semicircle arcs
+function polarToCartesian(cx: number, cy: number, r: number, angleDeg: number) {
+  const rad = (angleDeg * Math.PI) / 180;
+  return {
+    x: cx + r * Math.cos(rad),
+    y: cy - r * Math.sin(rad),
+  };
+}
+
+function createArcPath(cx: number, cy: number, r: number, startAngleDeg: number, endAngleDeg: number) {
+  const start = polarToCartesian(cx, cy, r, startAngleDeg);
+  const end = polarToCartesian(cx, cy, r, endAngleDeg);
+  const largeArc = Math.abs(startAngleDeg - endAngleDeg) > 180 ? 1 : 0;
+  return `M ${start.x.toFixed(2)} ${start.y.toFixed(2)} A ${r} ${r} 0 ${largeArc} 1 ${end.x.toFixed(2)} ${end.y.toFixed(2)}`;
+}
+
 export const ResultsDashboard: React.FC<ResultsDashboardProps> = ({
   responses,
   breakdown,
   onRestart,
 }) => {
+  // Compute applicable pledges (only those NOT yet adhered to) and achievements
+  const { applicablePledges, achievements } = useMemo(() => {
+    return getApplicablePledgesAndAchievements(responses);
+  }, [responses]);
+
   // Set of selected pledge IDs
   const [selectedPledges, setSelectedPledges] = useState<string[]>([]);
   const [copied, setCopied] = useState(false);
 
-  // Calculate total reduction from active pledges
+  // Calculate total reduction from active selected pledges
   const totalReduction = selectedPledges.reduce((sum, pId) => {
-    const pledge = CLIMATE_PLEDGES.find((p) => p.id === pId);
+    const pledge = applicablePledges.find((p) => p.id === pId);
     return sum + (pledge ? pledge.co2Reduction : 0);
   }, 0);
 
@@ -33,7 +54,7 @@ export const ResultsDashboard: React.FC<ResultsDashboardProps> = ({
     if (isAdding) {
       setSelectedPledges([...selectedPledges, pledgeId]);
       confetti({
-        particleCount: 40,
+        particleCount: 45,
         spread: 60,
         origin: { y: 0.8 },
       });
@@ -55,11 +76,36 @@ export const ResultsDashboard: React.FC<ResultsDashboardProps> = ({
     window.print();
   };
 
-  // Speedometer math (scale: 0 to 15 tonnes)
+  // Speedometer math for a TRUE, STRAIGHT SEMICIRCLE:
+  // Center: (100, 95). Baseline: y = 95.
+  // Scale: 0 to 15 tonnes.
+  // Angle: -90° (left, 0t) to +90° (right, 15t).
   const maxScale = 15;
-  const clampedScore = Math.min(effectiveScore, maxScale);
-  // Angle from -90 to +90 degrees
+  const clampedScore = Math.min(Math.max(0, effectiveScore), maxScale);
   const needleRotation = -90 + (clampedScore / maxScale) * 180;
+
+  // Arc Radii
+  const cx = 100;
+  const cy = 95;
+  const arcRadius = 72;
+  const strokeW = 18;
+  const rInner = arcRadius - strokeW / 2; // 63
+  const rOuter = arcRadius + strokeW / 2; // 81
+
+  // Zone boundaries in degrees:
+  // 0t -> 180°
+  // 2t -> 180 - (2/15)*180 = 156°
+  // 5t -> 180 - (5/15)*180 = 120°
+  // 10t -> 180 - (10/15)*180 = 60°
+  // 15t -> 0°
+  const zone1 = createArcPath(cx, cy, arcRadius, 180, 156);
+  const zone2 = createArcPath(cx, cy, arcRadius, 156, 120);
+  const zone3 = createArcPath(cx, cy, arcRadius, 120, 60);
+  const zone4 = createArcPath(cx, cy, arcRadius, 60, 0);
+
+  // Border paths for clean cartoon outline
+  const outerBorder = createArcPath(cx, cy, rOuter, 180, 0);
+  const innerBorder = createArcPath(cx, cy, rInner, 180, 0);
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 flex flex-col gap-8 print:p-0">
@@ -83,70 +129,108 @@ export const ResultsDashboard: React.FC<ResultsDashboardProps> = ({
         </div>
       </div>
 
-      {/* 2. Speedometer Gauge Card */}
+      {/* 2. Speedometer Gauge Card (Mathemathisch exakter, gerader Halbkreis) */}
       <div className="bg-white p-6 sm:p-8 rounded-3xl border-3 border-slate-900 shadow-[0_8px_0_0_#0f172a] flex flex-col items-center text-center">
         <h3 className="font-cartoon text-xl sm:text-2xl font-bold text-slate-900 mb-1">
           Dein jährlicher CO₂-Fußabdruck
         </h3>
-        <p className="text-xs sm:text-sm text-slate-500 mb-6">
+        <p className="text-xs sm:text-sm text-slate-500 mb-4">
           Berechnet in Tonnen CO₂-Äquivalente pro Kopf und Jahr
         </p>
 
-        {/* SVG Speedometer Gauge */}
-        <div className="relative w-64 h-36 sm:w-72 sm:h-40 flex items-center justify-center overflow-hidden mb-2">
-          <svg viewBox="0 0 200 110" className="w-full h-full">
-            {/* Background Arc */}
+        {/* SVG Speedometer Gauge (Echter gerader Halbkreis) */}
+        <div className="relative w-72 h-44 sm:w-80 sm:h-48 flex items-center justify-center overflow-hidden mb-1">
+          <svg viewBox="0 0 200 115" className="w-full h-full select-none">
+            {/* 4 Colored Segments with butt caps (ends are strictly flat on baseline) */}
+            {/* Zone 1: Paris Target (0-2t: Emerald Green) */}
             <path
-              d="M 20 100 A 80 80 0 0 1 180 100"
-              fill="none"
-              stroke="#e2e8f0"
-              strokeWidth="20"
-              strokeLinecap="round"
-            />
-            {/* Paris 1.5 Target Zone (Green: 0-2t -> ~13% of arc) */}
-            <path
-              d="M 20 100 A 80 80 0 0 1 45 42"
+              d={zone1}
               fill="none"
               stroke="#10b981"
-              strokeWidth="20"
-              strokeLinecap="round"
+              strokeWidth={strokeW}
+              strokeLinecap="butt"
             />
-            {/* World Avg Zone (Light Green/Yellow: 2-5t) */}
+            {/* Zone 2: World Average (2-5t: Lime Green) */}
             <path
-              d="M 45 42 A 80 80 0 0 1 90 21"
+              d={zone2}
               fill="none"
               stroke="#84cc16"
-              strokeWidth="20"
+              strokeWidth={strokeW}
+              strokeLinecap="butt"
             />
-            {/* German Avg Zone (Amber/Orange: 5-10t) */}
+            {/* Zone 3: German Average (5-10t: Sunny Amber) */}
             <path
-              d="M 90 21 A 80 80 0 0 1 150 48"
+              d={zone3}
               fill="none"
               stroke="#f59e0b"
-              strokeWidth="20"
+              strokeWidth={strokeW}
+              strokeLinecap="butt"
             />
-            {/* Schurke Zone (>10t) */}
+            {/* Zone 4: High Emissions (>10t: Coral Red) */}
             <path
-              d="M 150 48 A 80 80 0 0 1 180 100"
+              d={zone4}
               fill="none"
               stroke="#ef4444"
-              strokeWidth="20"
-              strokeLinecap="round"
+              strokeWidth={strokeW}
+              strokeLinecap="butt"
             />
-            {/* Needle Pivot */}
-            <circle cx="100" cy="100" r="8" fill="#0f172a" />
-            {/* Needle */}
+
+            {/* Cartoon Inner & Outer Outlines */}
+            <path d={outerBorder} fill="none" stroke="#0f172a" strokeWidth="2.5" />
+            <path d={innerBorder} fill="none" stroke="#0f172a" strokeWidth="2.5" />
+
+            {/* Straight Horizontal Bottom Baseline on the exact diameter (y=95) */}
+            <line x1={cx - rOuter} y1={cy} x2={cx - rInner} y2={cy} stroke="#0f172a" strokeWidth="2.5" strokeLinecap="square" />
+            <line x1={cx + rInner} y1={cy} x2={cx + rOuter} y2={cy} stroke="#0f172a" strokeWidth="2.5" strokeLinecap="square" />
+            <line x1="10" y1={cy} x2="190" y2={cy} stroke="#e2e8f0" strokeWidth="1.5" strokeDasharray="3 3" />
+
+            {/* Crisp Segment Dividers */}
             <line
-              x1="100"
-              y1="100"
-              x2="100"
-              y2="30"
+              x1={polarToCartesian(cx, cy, rInner, 156).x}
+              y1={polarToCartesian(cx, cy, rInner, 156).y}
+              x2={polarToCartesian(cx, cy, rOuter, 156).x}
+              y2={polarToCartesian(cx, cy, rOuter, 156).y}
               stroke="#0f172a"
-              strokeWidth="4"
-              strokeLinecap="round"
-              transform={`rotate(${needleRotation} 100 100)`}
-              className="transition-transform duration-700 ease-out"
+              strokeWidth="2"
             />
+            <line
+              x1={polarToCartesian(cx, cy, rInner, 120).x}
+              y1={polarToCartesian(cx, cy, rInner, 120).y}
+              x2={polarToCartesian(cx, cy, rOuter, 120).x}
+              y2={polarToCartesian(cx, cy, rOuter, 120).y}
+              stroke="#0f172a"
+              strokeWidth="2"
+            />
+            <line
+              x1={polarToCartesian(cx, cy, rInner, 60).x}
+              y1={polarToCartesian(cx, cy, rInner, 60).y}
+              x2={polarToCartesian(cx, cy, rOuter, 60).x}
+              y2={polarToCartesian(cx, cy, rOuter, 60).y}
+              stroke="#0f172a"
+              strokeWidth="2"
+            />
+
+            {/* Subtle Ticks & Labels */}
+            <text x="14" y="108" fontSize="8" fontWeight="bold" fill="#64748b" textAnchor="middle" fontFamily="Fredoka">0t</text>
+            <text x={polarToCartesian(cx, cy, 90, 156).x} y={polarToCartesian(cx, cy, 90, 156).y - 2} fontSize="8" fontWeight="bold" fill="#059669" textAnchor="middle" fontFamily="Fredoka">2t</text>
+            <text x={polarToCartesian(cx, cy, 90, 120).x} y={polarToCartesian(cx, cy, 90, 120).y - 2} fontSize="8" fontWeight="bold" fill="#65a30d" textAnchor="middle" fontFamily="Fredoka">5t</text>
+            <text x={polarToCartesian(cx, cy, 90, 60).x} y={polarToCartesian(cx, cy, 90, 60).y - 2} fontSize="8" fontWeight="bold" fill="#d97706" textAnchor="middle" fontFamily="Fredoka">10t</text>
+            <text x="186" y="108" fontSize="8" fontWeight="bold" fill="#dc2626" textAnchor="middle" fontFamily="Fredoka">15t+</text>
+
+            {/* Needle (Sleek pointed cartoon needle rotating around cx=100, cy=95) */}
+            <g transform={`rotate(${needleRotation} ${cx} ${cy})`} className="transition-transform duration-700 ease-out">
+              {/* Pointed Needle Shape */}
+              <polygon
+                points={`${cx - 2.5},${cy} ${cx + 2.5},${cy} ${cx},24`}
+                fill="#0f172a"
+              />
+              {/* Subtle accent highlight on needle */}
+              <circle cx={cx} cy="30" r="1.5" fill="#f59e0b" />
+            </g>
+
+            {/* Center Pivot Hub */}
+            <circle cx={cx} cy={cy} r="8" fill="#0f172a" />
+            <circle cx={cx} cy={cy} r="3.5" fill="#ffffff" />
           </svg>
         </div>
 
@@ -169,7 +253,7 @@ export const ResultsDashboard: React.FC<ResultsDashboardProps> = ({
         </div>
 
         {/* Legend */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full mt-6 pt-6 border-t border-slate-200 text-xs">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full mt-5 pt-5 border-t border-slate-200 text-xs">
           <div className="flex items-center gap-2 justify-center">
             <span className="w-3 h-3 rounded-full bg-emerald-500 shrink-0"></span>
             <span className="text-slate-600 font-medium">Paris Ziel (&lt;2t)</span>
@@ -303,7 +387,40 @@ export const ResultsDashboard: React.FC<ResultsDashboardProps> = ({
         </div>
       </div>
 
-      {/* 5. Special Scientific Spotlight from Gemini Notebook LCA Report */}
+      {/* 5. Achievements Section: Was du bereits vorbildlich machst! */}
+      {achievements.length > 0 && (
+        <div className="bg-emerald-50/90 p-6 sm:p-7 rounded-3xl border-3 border-emerald-900/40 shadow-[0_6px_0_0_#065f46]">
+          <div className="flex items-center justify-between gap-2 mb-3">
+            <h4 className="font-cartoon text-lg sm:text-xl font-bold text-emerald-950 flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-emerald-600" />
+              <span>Was du bereits vorbildlich machst! ({achievements.length} Erfolge)</span>
+            </h4>
+            <span className="px-3 py-1 rounded-full bg-emerald-200/70 text-emerald-900 text-xs font-bold">
+              Bereits eingehalten ✅
+            </span>
+          </div>
+          <p className="text-xs sm:text-sm text-emerald-800 mb-4">
+            Anhand deiner Antworten machst du diese wichtigen Dinge bereits richtig – weiter so!
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5">
+            {achievements.map((ach) => (
+              <div key={ach.id} className="bg-white/90 p-3 rounded-2xl border-2 border-emerald-800/30 flex items-start gap-2.5 shadow-sm">
+                <span className="text-2xl shrink-0">{ach.icon}</span>
+                <div>
+                  <strong className="block font-cartoon text-xs sm:text-sm text-slate-900 font-bold leading-snug">
+                    {ach.title}
+                  </strong>
+                  <p className="text-[11px] text-slate-600 leading-tight mt-0.5">
+                    {ach.praise}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* 6. Special Scientific Spotlight from Gemini Notebook LCA Report */}
       <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-6 sm:p-7 rounded-3xl border-3 border-amber-900/40 shadow-[0_6px_0_0_#78350f]">
         <h4 className="font-cartoon text-lg sm:text-xl font-bold text-amber-950 flex items-center gap-2 mb-3">
           <span>🔬</span> Ökobilanz-Spotlight: Technik, KI, E-Scooter & Vaping
@@ -330,65 +447,81 @@ export const ResultsDashboard: React.FC<ResultsDashboardProps> = ({
         </div>
       </div>
 
-      {/* 6. Interactive Action Plan / Klimaversprechen */}
+      {/* 7. Interactive Action Plan / Klimaversprechen (NUR NOCH OFFENE VERSPECHEN) */}
       <div className="bg-white p-6 sm:p-8 rounded-3xl border-3 border-slate-900 shadow-[0_8px_0_0_#0f172a]">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mb-4">
           <div>
             <h3 className="font-cartoon text-2xl font-bold text-slate-900 flex items-center gap-2">
-              <span>🌱</span> Deine Klimaversprechen
+              <span>🌱</span> Deine persönlichen Klimaversprechen
             </h3>
             <p className="text-xs sm:text-sm text-slate-500">
-              Wähle konkrete Hebel, die du in deinen Alltag einbauen möchtest. Dein CO₂-Wert sinkt sofort live!
+              {applicablePledges.length > 0
+                ? 'Hier siehst du Hebel, die du laut deinen Antworten noch nicht umsetzt. Wähle deine Vorsätze aus – dein CO₂-Wert sinkt sofort live!'
+                : 'Fantastisch! Du setzt bereits alle in dieser Umfrage geprüften Hebel vorbildlich um!'}
             </p>
           </div>
-          <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold border border-emerald-300">
-            {selectedPledges.length} aktiv
-          </span>
+          {applicablePledges.length > 0 && (
+            <span className="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold border border-emerald-300 shrink-0">
+              {selectedPledges.length} von {applicablePledges.length} aktiv
+            </span>
+          )}
         </div>
 
-        {/* Pledges Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
-          {CLIMATE_PLEDGES.map((pledge) => {
-            const isChecked = selectedPledges.includes(pledge.id);
-            return (
-              <button
-                key={pledge.id}
-                type="button"
-                onClick={() => togglePledge(pledge.id)}
-                className={`text-left p-4 rounded-2xl border-2 transition-all flex items-start gap-3 group active:scale-[0.99] ${
-                  isChecked
-                    ? 'bg-emerald-50 border-emerald-600 shadow-[0_4px_0_0_#059669]'
-                    : 'bg-white hover:bg-slate-50 border-slate-900 shadow-[0_3px_0_0_#0f172a]'
-                }`}
-              >
-                <div className={`w-6 h-6 rounded-lg border-2 flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
-                  isChecked
-                    ? 'bg-emerald-600 border-emerald-600 text-white'
-                    : 'border-slate-400 group-hover:border-slate-900 bg-white'
-                }`}>
-                  {isChecked && <CheckCircle2 className="w-4 h-4 stroke-[3]" />}
-                </div>
-
-                <div className="flex-1">
-                  <div className="flex items-center justify-between gap-1 mb-1">
-                    <span className="font-cartoon font-bold text-sm text-slate-900 flex items-center gap-1.5">
-                      <span>{pledge.icon}</span> {pledge.title}
-                    </span>
-                    <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold shrink-0">
-                      -{pledge.co2Reduction} t
-                    </span>
+        {/* Pledges Grid - ONLY applicable pledges the user has NOT adhered to yet */}
+        {applicablePledges.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+            {applicablePledges.map((pledge) => {
+              const isChecked = selectedPledges.includes(pledge.id);
+              return (
+                <button
+                  key={pledge.id}
+                  type="button"
+                  onClick={() => togglePledge(pledge.id)}
+                  className={`text-left p-4 rounded-2xl border-2 transition-all flex items-start gap-3 group active:scale-[0.99] ${
+                    isChecked
+                      ? 'bg-emerald-50 border-emerald-600 shadow-[0_4px_0_0_#059669]'
+                      : 'bg-white hover:bg-slate-50 border-slate-900 shadow-[0_3px_0_0_#0f172a]'
+                  }`}
+                >
+                  <div className={`w-6 h-6 rounded-lg border-2 flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
+                    isChecked
+                      ? 'bg-emerald-600 border-emerald-600 text-white'
+                      : 'border-slate-400 group-hover:border-slate-900 bg-white'
+                  }`}>
+                    {isChecked && <Check className="w-4 h-4 stroke-[3]" />}
                   </div>
-                  <p className="text-xs text-slate-600 leading-snug">
-                    {pledge.description}
-                  </p>
-                </div>
-              </button>
-            );
-          })}
-        </div>
+
+                  <div className="flex-1">
+                    <div className="flex items-center justify-between gap-1 mb-1">
+                      <span className="font-cartoon font-bold text-sm text-slate-900 flex items-center gap-1.5">
+                        <span>{pledge.icon}</span> {pledge.title}
+                      </span>
+                      <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold shrink-0">
+                        -{pledge.co2Reduction} t
+                      </span>
+                    </div>
+                    <p className="text-xs text-slate-600 leading-snug">
+                      {pledge.description}
+                    </p>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="p-6 rounded-2xl bg-emerald-50 border-2 border-emerald-500 text-center flex flex-col items-center gap-2">
+            <span className="text-4xl">🌟</span>
+            <strong className="font-cartoon text-lg text-emerald-900">
+              Keine offenen Versprechen nötig!
+            </strong>
+            <p className="text-xs sm:text-sm text-emerald-800 max-w-md">
+              Du lebst bereits nach den höchsten Nachhaltigkeitsstandards und hältst alle Maßnahmen ein. Du bist ein echtes Vorbild!
+            </p>
+          </div>
+        )}
       </div>
 
-      {/* 7. Kala Klima-Pass (Printable Urkunde) */}
+      {/* 8. Kala Klima-Pass (Printable Urkunde) */}
       <div className="bg-emerald-50 p-6 sm:p-8 rounded-3xl border-3 border-emerald-900/50 shadow-[0_8px_0_0_#064e3b] text-center relative overflow-hidden print:border print:shadow-none">
         <div className="absolute top-2 right-2 text-6xl opacity-10 pointer-events-none">
           🌍

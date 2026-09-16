@@ -1,4 +1,4 @@
-import type { Question, ClimatePledge, PersonaProfile } from '../types/calculator';
+import type { Question, ClimatePledge, PersonaProfile, UserAchievement } from '../types/calculator';
 
 export const CATEGORIES = [
   { id: 'intro', title: 'Start', icon: '👋', description: 'Dein Profil & Einstieg' },
@@ -646,3 +646,237 @@ export const CLIMATE_PLEDGES: ClimatePledge[] = [
     scienceNote: 'Warmwasserbereitung ist der zweitgrößte Energieverbraucher im Privathaushalt.',
   },
 ];
+
+export function getApplicablePledgesAndAchievements(responses: Record<string, string>): {
+  applicablePledges: ClimatePledge[];
+  achievements: UserAchievement[];
+} {
+  const applicablePledges: ClimatePledge[] = [];
+  const achievements: UserAchievement[] = [];
+
+  const pledgeMap = new Map(CLIMATE_PLEDGES.map(p => [p.id, p]));
+
+  // 1. Vaping
+  if (responses.vaping_type === 'disposable') {
+    const p = pledgeMap.get('pledge_vape');
+    if (p) applicablePledges.push(p);
+  } else if (responses.vaping_type === 'none') {
+    achievements.push({
+      id: 'ach_vape_none',
+      title: 'Rauch- & Vape-frei',
+      icon: '🚭',
+      praise: 'Du vermeidest gefährlichen Lithium-Batteriemüll, Brandrisiken und toxische Schwermetalle!',
+    });
+  } else if (responses.vaping_type === 'reusable') {
+    achievements.push({
+      id: 'ach_vape_reusable',
+      title: 'Wiederaufladbare Mehrweg-Pods',
+      icon: '♻️',
+      praise: 'Du nutzt kein Wegwerf-Lithium und sparst enorme Mengen Elektronikschrott.',
+    });
+  }
+
+  // 2. E-Scooter Smart Charging
+  if (responses.mobility_escooter_type === 'shared_freq' || responses.mobility_escooter_type === 'shared_rare') {
+    const p = pledgeMap.get('pledge_escooter_smart');
+    if (p) applicablePledges.push(p);
+  } else if (responses.mobility_escooter_type === 'private') {
+    if (responses.mobility_escooter_charging !== 'carbon_aware') {
+      const p = pledgeMap.get('pledge_escooter_smart');
+      if (p) applicablePledges.push(p);
+    } else {
+      achievements.push({
+        id: 'ach_escooter_smart',
+        title: 'Carbon-aware E-Scooter Lader',
+        icon: '⚡',
+        praise: 'Du lädst deinen Roller nachts oder bei viel Ökostrom – das spart 24,5 % CO₂e!',
+      });
+    }
+  } else if (responses.mobility_escooter_type === 'none') {
+    achievements.push({
+      id: 'ach_escooter_none',
+      title: 'Keine E-Scooter-Flottenlast',
+      icon: '🚶',
+      praise: 'Du gehst zu Fuß oder fährst Rad – ganz ohne Sammel- und Ladelogistik.',
+    });
+  }
+
+  // 3. KI-Nutzung
+  if (responses.tech_ai_hours !== 'none' && responses.tech_ai_time !== 'off_peak') {
+    const p = pledgeMap.get('pledge_ai_efficient');
+    if (p) applicablePledges.push(p);
+  } else if (responses.tech_ai_time === 'off_peak') {
+    achievements.push({
+      id: 'ach_ai_offpeak',
+      title: 'Carbon-aware KI-Pionier',
+      icon: '🤖',
+      praise: 'Du nutzt KI in lastarmen Zeiten (Off-Peak) und entlastest fossile Grenzkraftwerke!',
+    });
+  } else if (responses.tech_ai_hours === 'none') {
+    achievements.push({
+      id: 'ach_ai_none',
+      title: 'Minimaler Server-Footprint',
+      icon: '🌳',
+      praise: 'Du erzeugst fast keine Rechenzentren-Last durch KI-Prompts.',
+    });
+  }
+
+  // 4. Smartphone-Lebensdauer
+  if (responses.tech_device_life === '1_2yr') {
+    const p = pledgeMap.get('pledge_phone_long');
+    if (p) applicablePledges.push(p);
+  } else if (responses.tech_device_life === '5plus') {
+    achievements.push({
+      id: 'ach_phone_super',
+      title: 'Technik-Champion (5+ Jahre)',
+      icon: '📱',
+      praise: 'Hervorragend! Du halbierst den Herstellungs-Footprint deines Smartphones.',
+    });
+  } else if (responses.tech_device_life === '3_4yr') {
+    achievements.push({
+      id: 'ach_phone_good',
+      title: 'Nachhaltige Techniknutzung',
+      icon: '📱',
+      praise: '3–4 Jahre Nutzungsdauer schonen seltene Erden und Goldkontakte spürbar.',
+    });
+  }
+
+  // 5. Rind- & Lammfleisch
+  if (responses.food_beef_freq !== 'never' && responses.food_diet_type !== 'vegan' && responses.food_diet_type !== 'vegetarian') {
+    const p = pledgeMap.get('pledge_beef_half');
+    if (p) applicablePledges.push(p);
+  } else if (responses.food_beef_freq === 'never') {
+    achievements.push({
+      id: 'ach_no_beef',
+      title: 'Kein Rind- oder Lammfleisch',
+      icon: '🥗',
+      praise: 'Du sparst riesige Mengen des starken Treibhausgases Methan ein!',
+    });
+  }
+
+  // 6. Veggie / Vegan Tage
+  if (responses.food_diet_type === 'omnivore') {
+    const p = pledgeMap.get('pledge_veggie_days');
+    if (p) applicablePledges.push(p);
+  } else if (responses.food_diet_type === 'vegan') {
+    achievements.push({
+      id: 'ach_vegan',
+      title: '100% Pflanzlich (Vegan)',
+      icon: '🌱',
+      praise: 'Die klimaschonendste Ernährungsform überhaupt – spart bis zu 70% Food-CO₂!',
+    });
+  } else if (responses.food_diet_type === 'vegetarian') {
+    achievements.push({
+      id: 'ach_vegetarian',
+      title: 'Vegetarischer Lebensstil',
+      icon: '🧀',
+      praise: 'Fleischfrei essen schützt Regenwälder und spart virtuelles Wasser.',
+    });
+  } else if (responses.food_diet_type === 'flexitarian') {
+    achievements.push({
+      id: 'ach_flexi',
+      title: 'Flexitarische Ernährung',
+      icon: '🥦',
+      praise: 'Du isst bereits sehr bewusst wenig Fleisch – ein toller Schritt!',
+    });
+  }
+
+  // 7. Ökostrom
+  if (responses.housing_green_power === 'standard' || responses.housing_green_power === 'unknown') {
+    const p = pledgeMap.get('pledge_green_power');
+    if (p) applicablePledges.push(p);
+  } else if (responses.housing_green_power === 'yes_pure') {
+    achievements.push({
+      id: 'ach_green_power',
+      title: '100% Echter Ökostrom',
+      icon: '🔌',
+      praise: 'Kein Kohlestrom aus deiner Steckdose – das senkt Stromemissionen um 90%!',
+    });
+  }
+
+  // 8. Fahrrad & Zufußgehen
+  if (responses.mobility_cars !== '0' && responses.mobility_bike_walk !== 'hero') {
+    const p = pledgeMap.get('pledge_bike_short');
+    if (p) applicablePledges.push(p);
+  }
+  if (responses.mobility_cars === '0') {
+    achievements.push({
+      id: 'ach_car_free',
+      title: 'Autofreier Lebensstil',
+      icon: '🚲',
+      praise: 'Du lebst ohne eigenes Auto – das spart jedes Jahr mehrere Tonnen CO₂!',
+    });
+  } else if (responses.mobility_bike_walk === 'hero') {
+    achievements.push({
+      id: 'ach_bike_hero',
+      title: 'Fahrrad-Alltagsheld*in',
+      icon: '🚴',
+      praise: '4–7 Tage pro Woche Rad & Fußwege – gesünder und sauberer geht es nicht!',
+    });
+  }
+
+  // 9. Kurzstreckenflüge
+  if (responses.mobility_flights_short !== '0') {
+    const p = pledgeMap.get('pledge_no_flights_short');
+    if (p) applicablePledges.push(p);
+  } else {
+    achievements.push({
+      id: 'ach_no_short_flights',
+      title: 'Keine Inlands- / Kurzflüge',
+      icon: '🚆',
+      praise: 'Du nimmst die Bahn statt das Flugzeug – spart bis zu 1.000 kg CO₂!',
+    });
+  }
+
+  // 10. Langstreckenflüge Achievement
+  if (responses.mobility_flights_long === '0') {
+    achievements.push({
+      id: 'ach_no_long_flights',
+      title: 'Keine Fernflüge',
+      icon: '🌍',
+      praise: 'Du vermeidest die emissionsträchtigste Reiseform der Welt.',
+    });
+  }
+
+  // 11. Lebensmittelabfälle
+  if (responses.food_waste !== 'zero') {
+    const p = pledgeMap.get('pledge_food_waste');
+    if (p) applicablePledges.push(p);
+  } else {
+    achievements.push({
+      id: 'ach_zero_waste',
+      title: 'Zero Food Waste',
+      icon: '🥘',
+      praise: 'Du wirfst fast nie Lebensmittel weg – vorbildliche Wertschätzung!',
+    });
+  }
+
+  // 12. Second-Hand
+  if (responses.shopping_secondhand !== 'frequent') {
+    const p = pledgeMap.get('pledge_secondhand');
+    if (p) applicablePledges.push(p);
+  } else {
+    achievements.push({
+      id: 'ach_secondhand',
+      title: 'Second-Hand-Pionier*in',
+      icon: '👕',
+      praise: 'Gebrauchtkauf vermeidet 100% der industriellen Neuproduktion.',
+    });
+  }
+
+  // 13. Solarenergie Achievement
+  if (responses.housing_solar === 'yes_large' || responses.housing_solar === 'yes_balcony') {
+    achievements.push({
+      id: 'ach_solar',
+      title: 'Eigene Solarenergie',
+      icon: '☀️',
+      praise: 'Du erzeugst deinen eigenen sauberen Sonnenstrom auf Dach oder Balkon!',
+    });
+  }
+
+  // 14. Dusch-Pledge (immmer ein guter Hebel, sofern noch nicht Paris-Level erreicht)
+  const showerPledge = pledgeMap.get('pledge_shower');
+  if (showerPledge) applicablePledges.push(showerPledge);
+
+  return { applicablePledges, achievements };
+}
