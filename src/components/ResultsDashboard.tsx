@@ -532,9 +532,35 @@ export const ResultsDashboard: React.FC<ResultsDashboardProps> = ({
         <h4 className="font-cartoon text-2xl sm:text-3xl font-bold text-slate-900 mb-1">
           Klima-Pass: {responses.userName || 'Klima-Pionier'}
         </h4>
-        <p className="text-xs text-slate-600 mb-4">
+        <p className="text-xs text-slate-600 mb-3">
           Status: <strong>{persona.title}</strong> • Aktueller Jahres-Fußabdruck: <strong>{effectiveScore} Tonnen CO₂e</strong>
         </p>
+
+        {/* Certificate Badge & QR-Code */}
+        <div className="my-5 p-4 rounded-2xl bg-white/90 border-2 border-slate-900 shadow-[0_4px_0_0_#0f172a] flex flex-col sm:flex-row items-center justify-between gap-4 max-w-lg mx-auto text-left">
+          <div className="flex items-center gap-3.5">
+            <img
+              src="./qr-code.svg"
+              alt="QR-Code zum Kala Klima-Rechner"
+              className="w-20 h-20 sm:w-22 sm:h-22 rounded-xl border-2 border-slate-900 bg-white p-1 shadow-sm shrink-0"
+            />
+            <div>
+              <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded-md">
+                📱 Rechner weitergeben
+              </span>
+              <p className="font-cartoon text-xs sm:text-sm font-bold text-slate-900 mt-1 leading-snug">
+                Scanne den Code mit deinem Smartphone
+              </p>
+              <p className="text-[11px] text-slate-500 leading-tight">
+                Teile deinen Klima-Pass mit Freunden & Mitschülern!
+              </p>
+            </div>
+          </div>
+          <div className="hidden sm:block text-right border-l-2 border-slate-200 pl-4 shrink-0">
+            <span className="text-[10px] text-slate-400 font-bold block uppercase">Ausgestellt am</span>
+            <span className="text-xs font-bold text-slate-700">{new Date().toLocaleDateString('de-DE')}</span>
+          </div>
+        </div>
 
         <div className="inline-flex flex-wrap items-center justify-center gap-3">
           <button
