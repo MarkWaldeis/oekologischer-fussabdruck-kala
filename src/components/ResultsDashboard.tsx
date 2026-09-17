@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import type { UserResponses, CalculationBreakdown } from '../types/calculator';
 import { getPersona, getApplicablePledgesAndAchievements } from '../data/questions';
 import confetti from 'canvas-confetti';
-import { Share2, Printer, RotateCcw, Award, Check, Sparkles } from 'lucide-react';
+import { Share2, Printer, RotateCcw, Award, Check, Sparkles, Download } from 'lucide-react';
 
 interface ResultsDashboardProps {
   responses: UserResponses;
@@ -577,6 +577,14 @@ export const ResultsDashboard: React.FC<ResultsDashboardProps> = ({
             <Printer className="w-4 h-4" />
             <span>Klima-Pass drucken</span>
           </button>
+          <a
+            href="./whatsapp-klima-check.png"
+            download="Kala-Klima-Rechner-WhatsApp.png"
+            className="px-4 py-2.5 rounded-xl border-2 border-slate-900 bg-amber-100 hover:bg-amber-200 text-xs font-bold text-slate-900 flex items-center gap-1.5 shadow-[0_3px_0_0_#0f172a] active:translate-y-0.5 transition-all"
+          >
+            <Download className="w-3.5 h-3.5 text-amber-800" />
+            <span>WhatsApp-Bild</span>
+          </a>
           <button
             onClick={onRestart}
             className="px-4 py-2.5 rounded-xl border-2 border-slate-900 bg-slate-100 hover:bg-slate-200 text-xs font-bold flex items-center gap-1.5 shadow-[0_3px_0_0_#0f172a] active:translate-y-0.5"

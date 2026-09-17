@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RotateCcw, QrCode, X, Copy, Check, ExternalLink } from 'lucide-react';
+import { RotateCcw, QrCode, X, Copy, Check, ExternalLink, Download } from 'lucide-react';
 import type { CategoryId } from '../types/calculator';
 import { CATEGORIES } from '../data/questions';
 
@@ -138,6 +138,15 @@ export const Header: React.FC<HeaderProps> = ({
                 {copied ? <Check className="w-4 h-4 stroke-[3]" /> : <Copy className="w-4 h-4" />}
                 <span>{copied ? 'Link kopiert!' : 'Website-Link kopieren'}</span>
               </button>
+
+              <a
+                href="./whatsapp-klima-check.png"
+                download="Kala-Klima-Rechner-WhatsApp.png"
+                className="w-full py-2 px-3 rounded-xl border-2 border-slate-900 bg-amber-100 hover:bg-amber-200 text-[11px] font-bold text-slate-900 flex items-center justify-center gap-1.5 shadow-[0_2px_0_0_#0f172a] active:translate-y-0.5 transition-all"
+              >
+                <Download className="w-3.5 h-3.5 text-amber-800" />
+                <span>WhatsApp-Bild herunterladen</span>
+              </a>
 
               <a
                 href={liveUrl}
